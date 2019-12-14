@@ -1,79 +1,76 @@
 import React from 'react';
-import {View,Text,StyleSheet,ScrollView,Image} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,TouchableHighlight} from 'react-native';
 import {Button} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 
+
+let botonWidth = 300;
+
 function WelcomeThirdStep(props){
 
-    const {navigation} = props;
+    const {navigation,imageHeight,imageWidth} = props;
 
-    return(
-        <ScrollView style={styles.viewBody} centerContent={true}>
-             <Image
-             source={require("../../../assets/dvd.png")}
-             style={styles.image}
-             resizeMode="contain"
-             > 
-             </Image>
-             <Text style={styles.title}>
-                 Consulta tu perfil de restaurantes
-             </Text>
-             <Text style={styles.subtitle}>
-                 ¿Como describirias tu mejor rerstaurante? Busca y visualiza
-                 los mejores restaurantes de una forma sencilla.
-                 Ejemplo Texto 
-             </Text>
-             <View style={styles.viewBoton}>
+    return (
+          <ImageBackground
+            source={require('../../../assets/statics/image/thrid_step.jpg')}
+            style={{
+              width: imageWidth,
+              height: imageHeight,
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+            <Text style={{ color: AppStyles.WHITE_COLOR, fontSize: 50, fontWeight: "bold"  }}>
+              Hola
+            </Text>
+            <Text style={{ color: AppStyles.WHITE_COLOR, fontSize: 20,fontWeight: "bold",borderColor:AppStyles.ORAGE_COLOR }}>
+              Bienvenido a TikectNative
+            </Text>
 
-                <Button
-               title={AppText.BOTON_VER_PERFIL}
-               containerStyle={styles.btnContainer}
-               buttonStyle={styles.btnStyle}
-               onPress={() => navigation.navigate("login")}
-               type={AppText.BOTON_TYPE}
-                />
-             </View>
-        </ScrollView>
-    );
-} 
+            <View style={styles.viewBoton}>
+             
+            <TouchableHighlight onPress={() => navigation.navigate("login")}>
+              <View style={styles.btnContainer}>
+                   <Text style={styles.btnStyle}>{AppText.BOTON_TENGO_CUENTA}</Text>
+              </View> 
+            </TouchableHighlight>
 
-export default withNavigation(WelcomeThirdStep);
+            <TouchableHighlight onPress={() => navigation.navigate("Register")}>
+              <View style={styles.btnContainer}>
+                   <Text style={styles.btnStyle}>{AppText.BOTON_CREAR_CUENTA}</Text>
+              </View> 
+            </TouchableHighlight>
+               </View>
+          </ImageBackground>
+      );
+  }
 
-const styles = StyleSheet.create({
-
-    viewBody:{
-        marginLeft:AppStyles.MARGIN_TOP,
-        marginRight: AppStyles.MARGIN_TOP
-    },
-    image:{
-        height:300,
-        width:AppStyles.WIDTH,
-        marginBottom:AppStyles.MARGIN_TOP,
-    },
-    title:{
-        marginBottom:10,
-        fontWeight:"bold",
-        fontSize:19,
-        textAlign:AppStyles.CENTRADO
-    },
-    subtitle:{
-        marginBottom:AppStyles.MARGIN_TOP,
-        fontSize:12,
-        textAlign:AppStyles.CENTRADO
+  export default withNavigation(WelcomeThirdStep);
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     viewBoton:{
-        flex:1,
         alignItems:AppStyles.CENTRADO
     },
-    btnContainer:{
-        marginTop:AppStyles.MARGIN_TOP,
-        width:AppStyles.WIDTH
+    btnContainer: {
+      marginTop:AppStyles.MARGIN_20,
+      backgroundColor: "transparent",
+      borderColor: AppStyles.PRIMARY_COLOR,
+      borderWidth:AppStyles.BORDER_DEFAULT,
+      borderRadius: AppText.BORDER_RADIUS
     },
-    btnStyle:{
-        backgroundColor:AppStyles.SECONDARY_COLOR
-    },
-
-
-})
+    btnStyle: {
+      margin: AppStyles.MARGIN_10,
+      paddingHorizontal: AppStyles.MARGIN_10,
+      textAlign: "center",
+      backgroundColor: "transparent",
+      color: AppStyles.PRIMARY_COLOR,
+      fontSize: AppText.TITULO
+    }
+  });
+                

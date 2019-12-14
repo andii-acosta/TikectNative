@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyleSheet,View,Text,ActivityIndicator} from 'react-native';
 import { Overlay} from 'react-native-elements';
-
+import AppStyles from '../../utils/css/theme.style';
+import AppText from '../../utils/text/text.all';
 
 export default function Loading(props){
 
@@ -18,7 +19,7 @@ export default function Loading(props){
             <View style={style.view}>
                   <ActivityIndicator
                   size="large"
-                  color="#00a680"
+                  color={AppStyles.ORAGE_COLOR}
                   />
                      {textshow && (<Text style={style.textshow}>{textshow}</Text>)}
             </View>
@@ -31,10 +32,10 @@ const style= StyleSheet.create({
     overlay:{
         height:100,
         width:200,
-        backgroundColor:"#fff",
-        borderColor:"#00a680",
-        borderWidth:2,
-        borderRadius:10
+        backgroundColor:AppStyles.WHITE_COLOR,
+        borderColor:AppStyles.ORAGE_COLOR,
+        borderWidth:AppStyles.BORDER_1PX,
+        borderRadius:AppStyles.BORDER_RADIUS_5
     },
     view:{
         flex:1,
@@ -42,7 +43,7 @@ const style= StyleSheet.create({
         justifyContent: "center"
     },
     textshow:{
-        color:"#00a680",
+        color:AppStyles.ACCENT_COLOR,
         textTransform: "uppercase"
     }
 })

@@ -28,15 +28,21 @@ export default {
       INPUT_CONTRASENA_CONFIRMACION_LABEL:"Confirmar contraseña",
       INPUT_CORREO: "Ingrese el correo",
       INPUT_CORREO_LABEL: "Correo",
-    
+      INPUT_CELULAR: "Ingrese el numero celular",
+      INPUT_CELULAR_LABEL: "Celular",
+      INPUT_NAME:"Ingresa tu nombre",
+      INPUT_NAME_LABEL:"Nombre",
+      INPUT_NAME_ICON:"user",     
       INPUT_CONTRASENA_ICON:"at",
     
     //-----------TEXTOS PARA BOTONES --------------------
       BOTON_CREAR_CUENTA:"Crear Cuenta",
       BOTON_LOGIND:"Ingresar",
       BOTON_VER_PERFIL:"Ver Perfil",
+      BOTON_TENGO_CUENTA:"Tengo una cuenta",
+      BOTON_CREAR_CUENTA:"Crear una cuenta",
       BOTON_EXIST:"Cerrar Session",
-      BOTON_TYPE:"solid",
+      BOTON_TYPE:"outline",
     
       //-------------Loading text ----------------
       TEXT_SHOW_PROCESS: "Procesando ...",
@@ -48,8 +54,15 @@ export default {
       PADDING_CARDS_HOME:0.025,
       PADDING_HEADER:30,
       SIZE_CARDS_HOME:0.82,
-      SIZE_HOME_INIT:0.93,
-      BORDER_RADIUS:10
+      SIZE_HOME_INIT:1,
+      BORDER_RADIUS:5,
+
+      //-----------TAMAÑO DE TEXTOS ---------------
+
+      TITULO:25,
+      SUB_TITULO:20,
+      PARRAFO:12,
+      PARRAFO_GRANDE:16
 
 
 

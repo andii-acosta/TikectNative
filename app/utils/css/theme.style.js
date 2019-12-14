@@ -5,7 +5,7 @@ export default {
 
   //-------------COLORES PRIMARIOS -----------------------
 
-  PRIMARY_COLOR: '#4CAF50',
+  PRIMARY_COLOR:"#FFDCB2",
   LIGHT_PRIMARY_COLOR: '#C8E6C9',
   DARK_PRIMARY_COLOR:'#388E3C',
   ACCENT_COLOR:'#FF5722',
@@ -16,6 +16,7 @@ export default {
   WHITE_COLOR:"#ffffff",  //BLANCO 
   PURPLE_COLOR:"#9b59b6",
   BLUE_COLOR:"#3498db",
+  ORAGE_COLOR: "#FFDCB2",
 
   //-----------TIPOS DE LETRAS --------------------
   FONT_BOLD:"bold",
@@ -65,6 +66,10 @@ export default {
     //ESTILOS GENERALES
     CENTRADO:"center",
     MARGIN_TOP:20,
-    WIDTH:"95%"
+    WIDTH:"95%",
+
+    //BODES TAMAÑOS -----
+    BORDER_DEFAULT:0.5,
+    BORDER_1PX:1
 
   };
