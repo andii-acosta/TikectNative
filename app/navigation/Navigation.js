@@ -1,15 +1,17 @@
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AppStyles from '../utils/css/theme.style';
 import AppText from '../utils/text/text.all';
+import * as firebase from 'firebase';
 import  HomeScreenStack from './HomeStacks';
 import  PaymentScreenStacks from './PaymentStacks';
 import  MiAccountScreenStacks from './MyAccountStacks';
 
 const NavigationStacks = createBottomTabNavigator(
+
    {
     Home: {
         screen: HomeScreenStack,
@@ -35,7 +37,7 @@ const NavigationStacks = createBottomTabNavigator(
              size={22}
              color={tintColor}/>
            ),
-           tabBarVisible:false
+           tabBarVisible:true
        })
       },
       Payment:{

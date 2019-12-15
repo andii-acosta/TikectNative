@@ -23,7 +23,7 @@ return (
 )
 }
 
-return login ? <MyAccount/> : <Register/>
+return login ? <MyAccount/> : <Welcome/>
 
 }
 
