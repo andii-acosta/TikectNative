@@ -25,6 +25,7 @@ let inputWidth = dimensions.width * 0.8;
 function FormRegister(props){
 
     const buttons = ['Mujer', 'Hombre', 'Otro'];
+    const terminosyc = ['Si, Acepto', 'No, Acepto'];
 
     const { toastRef,navigation } = props;
     const [hidePassword,sethidePassword] = useState(true);
@@ -33,24 +34,24 @@ function FormRegister(props){
     const [name,setName] = useState("");
     const [celular,setCelular] = useState("");
     const [email,setEmail] = useState("");
+    const [terminos,setTerminos] = useState(null);
     const [password,setPassword] = useState("");
     const [repeatPassword,setRepeatPassword] = useState("");
-
     const [isVisibleLoadin,setisvisibleLoading] = useState(false);
 
     const crearcuenta = async () =>{
-        setisvisibleLoading(true);
+        if(terminos === terminosyc[0]){
          if(!email || !password || !repeatPassword || !name || !selectedIndex || !celular ){
 
             toastRef.current.show("Todos los campos son obligatorios");
-            console.log("datos: "+ "nombre: " + name+ "celular: " + celular+ "tipopersona: " + selectedIndex+ "email: " + email+ "pasw: " + password );
          }else{
 
             if(validateEmail(email)){
                 if(password!==repeatPassword){
                     toastRef.current.show("Las contraseñas no coinciden");
                 }else{
-                    console.log("datos: "+ "nombre: " + name+ "celular: " + celular+ "tipopersona: " + selectedIndex+ "email: " + email+ "pasw: " + password );
+                    setisvisibleLoading(true);
+                    console.log("datos: "+ "nombre: " + name+ "celular: " + celular+ "tipopersona: " + selectedIndex+ "email: " + email+ "pasw: " + password + " terminos"+terminos);
                     await firebase.auth()
                     .createUserWithEmailAndPassword(email,password)
                     .then(() => {
@@ -64,11 +65,12 @@ function FormRegister(props){
                             bio: "biografia...",
                             typeuser:"P",
                             isadmin:false,
+                            terminosyc:true,
                             creteAt: new Date(),
                             createBy:firebaseApp.auth().currentUser.uid
                         }).then(() =>{
                             setIsVisibleLoading(false);
-                            //navigation.navigate("MyAccount");
+                            navigation.navigate("MyAccount");
                            }
                         ).catch((error) =>{
                             setIsVisibleLoading(false);
@@ -86,6 +88,9 @@ function FormRegister(props){
                 toastRef.current.show("El email no es correcto");
             }
          }
+        }else{
+            toastRef.current.show("Debes aceptar los terminos y condiciones",3000);
+        }
          setisvisibleLoading(false);
     }
 
@@ -186,6 +191,28 @@ function FormRegister(props){
                 onPress={()=> {sethidePasswordtwo(!hidePasswordtwo)}}
                 /> }
              />
+                <Verterminos
+                navigation={navigation}/>
+                  <RadioButton.Group
+                    onValueChange={value => setTerminos(value)}
+                    value={terminos}
+                    
+                     >
+                    <View style={{flexDirection: 'row',justifyContent:"center",marginTop:AppStyles.MARGIN_20}}>
+                      {
+                           terminosyc.map((name,k) => (
+                           <Text style={{marginLeft:AppStyles.MARGIN_5,marginRight:AppStyles.MARGIN_5,color:AppStyles.ACCENT_COLOR}} key={k} >{name}</Text>
+                           ))
+                       }
+                   </View>
+                   <View style={{flexDirection: 'row',justifyContent:"center",marginTop:AppStyles.MARGIN_5}}>
+                       {
+                           terminosyc.map((name,k) => (
+                            <RadioButton value={name} key={k} />
+                           ))
+                       }
+                   </View>
+               </RadioButton.Group>
 
            <View style={styles.viewBoton}>
              
@@ -209,6 +236,24 @@ function FormRegister(props){
 
 export default withNavigation(FormRegister);
 
+function Verterminos(props){
+
+    const {navigation} = props;
+
+    return(
+        <View style={styles.viewcontainertyc}>
+        <Text style={styles.Register}>
+            <Text 
+            style={styles.btnRegister}
+            onPress={() => {navigation.navigate("Recuperarpassword")}}
+            >
+                Aqui
+            </Text>
+             {" "}puedes leer los terminos y condiciones.
+        </Text>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
     btnContainer: {
@@ -244,6 +289,15 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         marginTop:formHeight,
         marginBottom:AppStyles.MARGIN_20
-    }
+    },
+    viewcontainertyc:{
+        alignContent:"center",
+        justifyContent:"center",
+        marginTop:AppStyles.MARGIN_10
+    },
+    btnRegister:{
+    color:AppStyles.ACCENT_COLOR,
+    fontWeight:"bold"
+    } 
 
 })

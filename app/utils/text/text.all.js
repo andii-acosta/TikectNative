@@ -40,12 +40,13 @@ export default {
       BOTON_LOGIND:"Ingresar",
       BOTON_VER_PERFIL:"Ver Perfil",
       BOTON_TENGO_CUENTA:"Tengo una cuenta",
-      BOTON_CREAR_CUENTA:"Crear una cuenta",
+      BOTON_CREAR_CUENTA:"Crear cuenta",
       BOTON_EXIST:"Cerrar Session",
       BOTON_TYPE:"outline",
     
       //-------------Loading text ----------------
       TEXT_SHOW_PROCESS: "Procesando ...",
+      TEXT_TYC: "para crear tu cuenta debes aceptar los terminos y condiciones",
     
       //------------FACEBOOK ------------
       ID_FACEBOOK: "1006507323075344",
