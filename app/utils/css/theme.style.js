@@ -17,6 +17,7 @@ export default {
   PURPLE_COLOR:"#9b59b6",
   BLUE_COLOR:"#3498db",
   ORAGE_COLOR: "#FFDCB2",
+  COLOR_ICON_DEFAULT:"#ccc",
 
   //-----------TIPOS DE LETRAS --------------------
   FONT_BOLD:"bold",
@@ -60,7 +61,7 @@ export default {
     ICON_RIGTH_COLOR:"#C1C1C1", // GRIS 
     //---------------------------------
     //ESTILOS PARA EL BOTON OFICIAL
-    ICON_RIGTH_COLOR:"#C1C1C1", // GRIS 
+    ICON_RIGTH_COLOR_BUTTON:"#C1C1C1", // GRIS 
     //---------------------------------
 
     //ESTILOS GENERALES

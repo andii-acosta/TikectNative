@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,ImageBackground,TouchableHighlight} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity} from 'react-native';
 import {Button} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
 import AppStyles from '../../utils/css/theme.style';
@@ -30,17 +30,17 @@ function WelcomeThirdStep(props){
 
             <View style={styles.viewBoton}>
              
-            <TouchableHighlight onPress={() => navigation.navigate("login")}>
+            <TouchableOpacity onPress={() => navigation.navigate("login")}>
               <View style={styles.btnContainer}>
                    <Text style={styles.btnStyle}>{AppText.BOTON_TENGO_CUENTA}</Text>
               </View> 
-            </TouchableHighlight>
+            </TouchableOpacity>
 
-            <TouchableHighlight onPress={() => navigation.navigate("Register")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Register")}>
               <View style={styles.btnContainer}>
                    <Text style={styles.btnStyle}>{AppText.BOTON_CREAR_CUENTA}</Text>
               </View> 
-            </TouchableHighlight>
+            </TouchableOpacity>
                </View>
           </ImageBackground>
       );

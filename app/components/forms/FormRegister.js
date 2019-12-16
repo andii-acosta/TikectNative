@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet,View,TouchableHighlight,Text,Dimensions,ScrollView} from 'react-native';
+import {StyleSheet,View,TouchableOpacity,Text,Dimensions,ScrollView} from 'react-native';
 import {Button,Input,ButtonGroup} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {validateEmail} from '../../utils/validation/Validation';
@@ -66,7 +66,8 @@ function FormRegister(props){
                             typeuser:"P",
                             isadmin:false,
                             terminosyc:true,
-                            creteAt: new Date(),
+                            status:"A",
+                            createAt: new Date(),
                             createBy:firebaseApp.auth().currentUser.uid
                         }).then(() =>{
                             setIsVisibleLoading(false);
@@ -216,11 +217,11 @@ function FormRegister(props){
 
            <View style={styles.viewBoton}>
              
-             <TouchableHighlight onPress={crearcuenta}>
+             <TouchableOpacity onPress={crearcuenta}>
                <View style={styles.btnContainer}>
                     <Text style={styles.btnStyle}>{AppText.BOTON_CREAR_CUENTA}</Text>
                </View> 
-             </TouchableHighlight>
+             </TouchableOpacity>
             </View>
 
              <Loading

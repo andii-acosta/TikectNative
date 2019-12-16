@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
-import {View,StyleSheet,Dimensions,Text,TouchableOpacity} from 'react-native';
-import {Input} from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {View,StyleSheet,Dimensions,TouchableOpacity,Text} from 'react-native';
+import {Button,Icon,Input} from 'react-native-elements';
 import * as firebase from 'firebase';
 import {validateEmail} from '../../utils/validation/Validation';
 import Loading from '../loading/Loading';
@@ -9,44 +8,41 @@ import {withNavigation} from 'react-navigation';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 
-
 let dimensions = Dimensions.get("window");
 let imageHeight = Math.round(dimensions.height * AppText.SIZE_HOME_INIT);
-let imageWidth = dimensions.width;
-
+let formHeight = dimensions.height * 0.05;
 let inputWidth = dimensions.width * 0.8;
 
+ function FormReturnPassword(props){
 
- function FormLogin(props){
-
-   const [hidePassword,setHidePassword] = useState(true);
    const [email,setEmail] = useState("");
-   const [password,setPassword] = useState("");
 
    const [visibleLoadin,setVisibleLoading] = useState(false);
    const { toastRef,navigation } = props;
 
 
-const login = async () =>{
+const resetpassword = async () =>{
     setVisibleLoading(true);
-    console.log("email: " + email+ " contra: "+ password); 
-    if(!email || !password){
+    console.log("email: " + email); 
+    if(!email){
+        toastRef.current.show("Ingresa el email",2000);
         console.log("complete los datos");
-        toastRef.current.show("Datos incompletos");
     }else{
         if(validateEmail(email)){
              await  firebase.auth()
-             .signInWithEmailAndPassword(email,password)
+             .sendPasswordResetEmail(email)
              .then(() => {
-                navigation.navigate("Init");
-                console.log("se inicio session"); 
+                toastRef.current.show("Se envio el correo con exito",2000);
+                navigation.navigate("login");
+                console.log("se a enviado el correo"); 
+                
              })
              .catch(() => {
-                console.log("no se inicion session");
-                toastRef.current.show("Error al iniciar session");
+                console.log("no se envio el corrreo");
+                toastRef.current.show("no se pudo enviar el correo",2000);
              })
         }else{
-            toastRef.current.show("Email incorrecto");
+         
         console.log("incorrecto");
         }
     }
@@ -54,7 +50,7 @@ const login = async () =>{
 }
 
     return(
-        <View >
+        <View style={styles.viewcontainer}>
             <Input
             placeholder={AppText.INPUT_USUARIO}
             containerStyle={styles.inputForm}
@@ -63,38 +59,19 @@ const login = async () =>{
             onChange={e => setEmail(e.nativeEvent.text)}
             rightIcon={
                 <Icon 
+                type={AppText.ICON_TYPE}
                 name={AppText.INPUT_CONTRASENA_ICON}
                 size={AppStyles.INPUT_SIZE_ICON}
                 iconStyle={styles.iconRight}
                 /> }
              />
-             <Input
-            placeholder={AppText.INPUT_CONTRASENA}
-            containerStyle={styles.inputForm}
-            password={true}
-            secureTextEntry={hidePassword}
-            label={AppText.INPUT_CONTRASENA_LABEL}
-            labelStyle={styles.labelStyles}
-            onChange={e => setPassword(e.nativeEvent.text)}
-            rightIcon={
-                <Icon 
-                name={hidePassword ? "eye-slash":"eye"}
-                size={AppStyles.INPUT_SIZE_ICON}
-                iconStyle={styles.iconRight}
-                onPress={()=> {setHidePassword(!hidePassword)}}
-                
-                /> }
-             />
-
-           <View style={styles.viewBoton}>
-             
-             <TouchableOpacity onPress={login}>
+            <View style={styles.viewBoton}>
+             <TouchableOpacity onPress={resetpassword}>
                <View style={styles.btnContainer}>
                     <Text style={styles.btnStyle}>{AppText.BOTON_LOGIND}</Text>
                </View> 
              </TouchableOpacity>
             </View>
-
             <Loading
             textshow={AppText.TEXT_SHOW_PROCESS}
             isvisible={visibleLoadin}
@@ -103,10 +80,30 @@ const login = async () =>{
     );
 }
 
-export default withNavigation(FormLogin)
+export default withNavigation(FormReturnPassword)
 
 
 const styles = StyleSheet.create({
+    viewcontainer:{
+        alignContent:"center",
+        justifyContent:"center",
+        marginTop:formHeight,
+        marginBottom:AppStyles.MARGIN_20
+    },
+    inputForm:{
+        width:inputWidth,
+        marginTop:AppStyles.MARGIN_TOP  
+    },
+    iconRight:{
+       color:AppStyles.ICON_RIGTH_COLOR
+    },
+    labelStyles:{
+        color:AppStyles.INPUT_LABEL_COLOR
+    },
+
+    viewBoton:{
+        alignItems:AppStyles.CENTRADO
+    },
     btnContainer: {
         marginTop:AppStyles.MARGIN_20,
         backgroundColor: "transparent",
@@ -122,17 +119,4 @@ const styles = StyleSheet.create({
         color: AppStyles.ACCENT_COLOR,
         fontSize: AppText.SUB_TITULO
       },
-    inputForm:{
-        width:inputWidth,
-        marginTop:AppStyles.MARGIN_TOP  
-    },
-    iconRight:{
-       color:AppStyles.COLOR_ICON_DEFAULT
-    },
-    labelStyles:{
-        color:AppStyles.INPUT_LABEL_COLOR
-    },
-    viewBoton:{
-        alignItems:AppStyles.CENTRADO
-    },
 })

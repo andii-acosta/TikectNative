@@ -1,37 +1,40 @@
 import React,{useState,useEffect} from 'react';
 import {Text, View,StyleSheet,ScrollView,Dimensions,Image } from 'react-native';
 import AppStyles from '../../utils/css/theme.style';
-import AppText from '../../utils/text/text.all';
+import AppText from '../../utils//text/text.all';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CardsHome from '../../components/cardshome/CardsHome';
+import PautaHome from '../../components/bannercarousel/PautaHome';
+import {withNavigation} from 'react-navigation';
 
 let dimensions = Dimensions.get("window");
 let imageHeight = Math.round(dimensions.height * AppText.SIZE_CARDS_HOME);
 let imageWidth = dimensions.width
 let paddingContainer = Math.round(dimensions.width * AppText.PADDING_CARDS_HOME);
+let padding = dimensions.height*0.04;
 
-export default function Home(props){
+function Home(props){
 
+  const {navigation} = props;
 
-  console.log("ancho: "+ imageWidth + "  " + "alto: " + dimensions.height);
   const cards = [
          {
-           title:"Destacados",
+           title:"D",
            typeList:1,
            maxResult:10,
            minresult:10,
            index:1
          },
          {
-          title:"Promociones",
+          title:"P",
           typeList:2,
           maxResult:10,
           minresult:10,
           index:2
         },
         {
-          title:"General",
+          title:"G",
           typeList:3,
           maxResult:10,
           minresult:10,
@@ -39,32 +42,34 @@ export default function Home(props){
         }
   ];
 
- // console.log(cards);
 
   return (
     <View style={styles.contentStyle}>
-      <Text style={styles.headerText}>BANNER DE PUBLICIDAD</Text>
-      <ScrollView horizontal={true} >
+      <View>
+           <PautaHome />
+      </View>
+      <View style={styles.marginStyleCards}>
 
-            {cards && cards.map(card => (
-              <View style={styles.scrollHorizontal}
-              key={card.index}>
+      <ScrollView horizontal={true} >
+           {cards && cards.map((card)=>(
               <CardsHome
               key={card.index}
-              title={card.title}
               typeList={card.typeList}
               maxResult={card.maxResult}
               minresult={card.minresult}
+              navigation={navigation}
+              type={card.title}
               />
-              </View>
-            ))}
-          
+           ))
+           }
       </ScrollView>
+      </View>
       <CreateEventButton/>
     </View>
   );
 }
 
+export default withNavigation(Home);
 
 function CreateEventButton(props){
     return(
@@ -85,21 +90,10 @@ function CreateEventButton(props){
 
 const styles = StyleSheet.create({
 
-  headerText: {
-    fontSize: 20,
-    textAlign: "center",
-    fontWeight: "bold",
-    backgroundColor:AppStyles.BLUE_COLOR,
-    marginBottom:10
-  },
-  scrollHorizontal:{
-    height: imageHeight, 
-    width: imageWidth,
-    paddingLeft:paddingContainer,
-    paddingRight:paddingContainer
-
-  },
   contentStyle:{
-    paddingTop:AppText.PADDING_HEADER
-}
+    paddingTop:padding
+  },
+  marginStyleCards:{
+    marginTop:AppStyles.MARGIN_5
+  }
 });

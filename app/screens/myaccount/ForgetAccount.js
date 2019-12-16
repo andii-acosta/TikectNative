@@ -1,46 +1,37 @@
 import React,{useRef} from 'react';
-import {StyleSheet,View,Image,ScrollView} from 'react-native';
+import {StyleSheet,View,ScrollView} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Toast from 'react-native-easy-toast';
 import AppStyles from '../../utils/css/theme.style';
+import FormReturnPassword from '../../components/forms/FormReturnPassword';
 
-export default function ForgetAccount(){
+export default function ForgetAccount(props){
 
+    const {navigation}=props;
 
     const toastRef = useRef();
 
-    return(<ScrollView>
-       <KeyboardAwareScrollView>
-            <Image 
-            source={require("../../../assets/dvd.png")}
-            style={styles.logo}
-            >
-            </Image>
-
+    return(<View style={styles.containerStyle}>
             <View 
             style={styles.viewForm}>
-
+                   <FormReturnPassword
+                   navigation={navigation}
+                   toastRef={toastRef}
+                   />
             </View>
-           <Toast position={AppStyles.CENTRADO} opacity={0.7} ref={toastRef}/>
-
-        </KeyboardAwareScrollView>
-
-    </ScrollView>
-        
+            <Toast position={AppStyles.CENTRADO} opacity={0.7} ref={toastRef}/>
+    </View>
     );
-
-
 }
 
 const styles = StyleSheet.create({
-
-    logo:{
-       width:AppStyles.WIDTH,
-       height:150,
-       marginTop:AppStyles.MARGIN_TOP
-        },
     viewForm:{
-            marginLeft:AppStyles.MARGIN_TOP,
-            marginRight:AppStyles.MARGIN_TOP
+            alignItems:AppStyles.CENTRADO,
+            justifyContent:AppStyles.CENTRADO
+        },
+    containerStyle:{
+            flex:1,
+            alignItems:"center",
+            justifyContent:"center"
         }
 });

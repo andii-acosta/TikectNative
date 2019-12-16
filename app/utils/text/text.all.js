@@ -63,19 +63,45 @@ export default {
       TITULO:25,
       SUB_TITULO:20,
       PARRAFO:12,
-      PARRAFO_GRANDE:16
+      PARRAFO_GRANDE:16,
 
 
+    //--------MENU GENERAL OPTIONS -------------
+    LIST_ITEM_1: "Buscar",
+    LIST_ITEM_2: "Mis Eventos",
+    LIST_ITEM_3: "Cupones",
+    LIST_ITEM_4: "Medios de pago",
+    LIST_ITEM_5: "Editar mis datos",
+    LIST_ITEM_6: "Contactenos",
+    LIST_ITEM_7: "Quiero trabajar",
 
+    LIST_ITEM_ICON_1: "search",
+    LIST_ITEM_ICON_2: "leaf",
+    LIST_ITEM_ICON_3: "file",
+    LIST_ITEM_ICON_4: "credit-card",
+    LIST_ITEM_ICON_5: "edit",
+    LIST_ITEM_ICON_6: "comment",
+    LIST_ITEM_ICON_7: "home",
 
+    LIST_ITEM_SELECTED: "chevron-right",
+    ICON_TYPE:"font-awesome",
 
+    //--------NAVIGATE PAGES LIST ---------------
 
+    NAVIGATE_ITEM_1: "Search",
+    NAVIGATE_ITEM_2: "MyEvents",
+    NAVIGATE_ITEM_3: "Coupons",
+    NAVIGATE_ITEM_4: "Pay",
+    NAVIGATE_ITEM_5: "EditAccount",
+    NAVIGATE_ITEM_6: "Contact",
+    NAVIGATE_ITEM_7: "Working",
 
-
-
-
-
-
+    //---------TIEMPOS --------
+    TIME_LOOP_HOME_PAUTA:5000,
+    //---------TIPOS CARDS HOME -------------
+    CARD_FIRST:"D",
+    CARD_SECOND:"P",
+    CARD_THRID:"G",
 
 
 

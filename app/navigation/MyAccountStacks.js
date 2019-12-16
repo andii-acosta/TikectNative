@@ -5,6 +5,15 @@ import RegisterScremm from '../screens/myaccount/Register';
 import RecuperarScremm from '../screens/myaccount/ForgetAccount';
 import InitScrenn from '../screens/myaccount/Init';
 import WelcomeScreem from '../screens/myaccount/Welcome';
+import SearchScreen from '../screens/myaccount/listoptionsscreens/Search';
+import MyEventsScreen from '../screens/myaccount/listoptionsscreens/MyEvents';
+import CouponsScreen from '../screens/myaccount/listoptionsscreens/Coupons';
+import PayScreen from '../screens/myaccount/listoptionsscreens/Pay';
+import EditAccountScreen from '../screens/myaccount/listoptionsscreens/EditAccount';
+import ContactScreen from '../screens/myaccount/listoptionsscreens/Contact';
+import WorkingScreen from '../screens/myaccount/listoptionsscreens/Working';
+import AppStyles from '../utils/css/theme.style';
+import AppText from '../utils/text/text.all';
 
 const MyAccountScreemStacks = createStackNavigator(
     {
@@ -39,11 +48,53 @@ const MyAccountScreemStacks = createStackNavigator(
                        })
             },
         Welcome:  {
-                screen: WelcomeScreem,
-                 navigationOptions: () => ({
-                    header:null
-                           })
-                }
+            screen: WelcomeScreem,
+            navigationOptions: () => ({
+                header:null
+                       })
+            },
+        Search:  {
+            screen: SearchScreen,
+            navigationOptions: () => ({
+                title:AppText.LIST_ITEM_1
+                       })
+            },
+         MyEvents: {
+            screen: MyEventsScreen,
+             navigationOptions: () => ({
+                title: AppText.LIST_ITEM_2
+                    })
+            },
+        Coupons:  {
+            screen:CouponsScreen,
+            navigationOptions: () => ({
+                title: AppText.LIST_ITEM_3
+                   })
+            },
+        Pay:  {
+            screen: PayScreen,
+            navigationOptions: () => ({
+                title: AppText.LIST_ITEM_4
+                  })
+            },
+        EditAccount:  {
+            screen: EditAccountScreen,
+            navigationOptions: () => ({
+                title: AppText.LIST_ITEM_5
+                                       })
+            },
+        Contact:  {
+            screen: ContactScreen,
+            navigationOptions: () => ({
+                title: AppText.LIST_ITEM_6
+                     })
+             },
+        Working:  {
+            screen: WorkingScreen,
+            navigationOptions: () => ({
+                title: AppText.LIST_ITEM_7
+                })
+            }
     }
 );
 
