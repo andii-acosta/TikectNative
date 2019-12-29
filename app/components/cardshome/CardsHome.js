@@ -3,7 +3,7 @@ import {Text, View,StyleSheet,ScrollView,Dimensions } from 'react-native';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 import ListItems from '../../components/list/ListItems';
-
+import LoadingGeneral from '../loading/LoadingGeneral';
 import {firebaseApp} from '../../utils/Firebase';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -31,6 +31,7 @@ export default function CardsHome(props){
     //console.log("tipo: "+type );
 
   useEffect(() => {
+    setIsloading(true);
     db.collection("App/Info/Detalle")
     .get()
     .then(snap => {
@@ -96,11 +97,15 @@ const handlerLoadMore = async () => {
         <View style={styles.viewCenter}>
         <ListItems
             items={items}
-            isLoading={isLoading}
+            setIsloading={setIsloading}
             handlerLoadMore={handlerLoadMore}
             navigation={navigation}
             />
         </View>
+        <LoadingGeneral
+            isvisible={isLoading}
+            textshow={AppText.TEXT_SHOW_PROCESS}
+            />
       </ScrollView>
   );
 }

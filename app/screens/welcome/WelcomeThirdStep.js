@@ -62,7 +62,7 @@ function WelcomeThirdStep(props){
       backgroundColor: "transparent",
       borderColor: AppStyles.PRIMARY_COLOR,
       borderWidth:AppStyles.BORDER_DEFAULT,
-      borderRadius: AppText.BORDER_RADIUS
+      borderRadius: AppStyles.BORDER_RADIUS
     },
     btnStyle: {
       margin: AppStyles.MARGIN_10,

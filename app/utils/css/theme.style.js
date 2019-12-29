@@ -18,7 +18,7 @@ export default {
   BLUE_COLOR:"#3498db",
   ORAGE_COLOR: "#FFDCB2",
   COLOR_ICON_DEFAULT:"#ccc",
-
+  
   //-----------TIPOS DE LETRAS --------------------
   FONT_BOLD:"bold",
 
@@ -39,6 +39,7 @@ export default {
   MARGIN_50:50,
 
   //---------BORDER RADIUS -------------------
+  BORDER_RADIUS:5,
   BORDER_RADIUS_5:5,
   BORDER_RADIUS_10:10,
   BORDER_RADIUS_15:15,
@@ -54,6 +55,7 @@ export default {
     FONT_WEIGHT_HEAVY: 800,
     //ESTILOS PARA EL INPUT OFICIAL
     INPUT_SIZE_ICON:24,
+    INPUT_SIZE_ICON_L:36,
     INPUT_COLOR_ERROR:"#FF512C",
     INPUT_LABEL_COLOR:"#ADADAD", // GRIS,
     //---------------------------------

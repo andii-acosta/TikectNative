@@ -9,7 +9,7 @@ export default function Payment(props){
     return(
         <View style={styles.viewBody}>
             <Text>
-                  Pagina Pagos ...
+                  Pagina Entradas ...
             </Text>
         </View>
     );

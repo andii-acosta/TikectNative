@@ -20,6 +20,11 @@ export default function InfoUser(props){
         userdata: {name,bio,cell}
     } = props; 
 
+
+
+    const gradientHeight = 100;
+    const data = Array.from({length:gradientHeight});
+
 const changeAvatar=async () =>{
 
     const resultPermission = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -81,6 +86,7 @@ const updatePhotourl = uid => {
 
 
     return(
+
         <View style={styles.viewuserInfo}>
             <Avatar
             rounded
@@ -109,11 +115,15 @@ const updatePhotourl = uid => {
                
 
         </View>
+
     );
 }
 
 
 const styles = StyleSheet.create({
+    container:{
+       flex:1
+    },
     viewuserInfo:{
         alignItems:AppStyles.CENTRADO,
         justifyContent:AppStyles.CENTRADO,

@@ -110,6 +110,7 @@ function FormRegister(props){
                 selectedBackgroundColor={AppStyles.ACCENT_COLOR}
                 name={AppText.INPUT_NAME_ICON}
                 size={AppStyles.INPUT_SIZE_ICON}
+                color={AppStyles.ICON_RIGTH_COLOR}
                 iconStyle={styles.iconRight}
                 /> }
              />
@@ -143,6 +144,7 @@ function FormRegister(props){
                 <Icon 
                 name={"mobile"}
                 size={AppStyles.INPUT_SIZE_ICON}
+                color={AppStyles.ICON_RIGTH_COLOR}
                 iconStyle={styles.iconRight}
                 /> }
              />
@@ -156,6 +158,7 @@ function FormRegister(props){
                 <Icon 
                 name={AppText.INPUT_CONTRASENA_ICON}
                 size={AppStyles.INPUT_SIZE_ICON}
+                color={AppStyles.ICON_RIGTH_COLOR}
                 iconStyle={styles.iconRight}
                 /> }
              />
@@ -172,6 +175,7 @@ function FormRegister(props){
                 name={hidePassword ? "eye-slash":"eye"}
                 size={AppStyles.INPUT_SIZE_ICON}
                 iconStyle={styles.iconRight}
+                color={AppStyles.ICON_RIGTH_COLOR}
                 onPress={()=> {sethidePassword(!hidePassword)}}
                 /> }
              />
@@ -189,6 +193,7 @@ function FormRegister(props){
                 name={hidePasswordtwo ? "eye-slash":"eye"}
                 size={AppStyles.INPUT_SIZE_ICON}
                 iconStyle={styles.iconRight}
+                color={AppStyles.ICON_RIGTH_COLOR}
                 onPress={()=> {sethidePasswordtwo(!hidePasswordtwo)}}
                 /> }
              />
@@ -262,7 +267,7 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         borderColor: AppStyles.ACCENT_COLOR,
         borderWidth:AppStyles.BORDER_DEFAULT,
-        borderRadius: AppText.BORDER_RADIUS
+        borderRadius: AppStyles.BORDER_RADIUS
       },
       btnStyle: {
         margin: AppStyles.MARGIN_10,

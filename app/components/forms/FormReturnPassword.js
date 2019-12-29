@@ -62,6 +62,7 @@ const resetpassword = async () =>{
                 type={AppText.ICON_TYPE}
                 name={AppText.INPUT_CONTRASENA_ICON}
                 size={AppStyles.INPUT_SIZE_ICON}
+                color={AppStyles.ICON_RIGTH_COLOR}
                 iconStyle={styles.iconRight}
                 /> }
              />
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         borderColor: AppStyles.ACCENT_COLOR,
         borderWidth:AppStyles.BORDER_DEFAULT,
-        borderRadius: AppText.BORDER_RADIUS
+        borderRadius: AppStyles.BORDER_RADIUS
       },
       btnStyle: {
         margin: AppStyles.MARGIN_10,
