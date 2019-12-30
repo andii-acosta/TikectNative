@@ -19,7 +19,6 @@ export default {
   NAME_ICON_CALENDAR:"calendar",
   NAME_ICON_PAGE_MYACCOUNT:"user",
   NAME_ICON_PAGE_PAYMENT:"shopping-basket",
-  NAME_BUTTONS_GROUP:['Todos', 'Recomendados', 'Promociones'],
   WHATSAPP: "Whatsapp",
   WHATSAPP_ICON:"whatsapp",
   CREATE_EVENT:"Crear Evento",
@@ -42,6 +41,19 @@ export default {
       INPUT_NAME_LABEL:"Nombre",
       INPUT_NAME_ICON:"user",     
       INPUT_CONTRASENA_ICON:"at",
+      INPUT_COUPONS:"Ingresa tu cupon",
+      INPUT_COUPONS_LABEL:"Cupones",
+
+
+      INPUT_DIRECCION:"Ingresa tu direccion",
+      INPUT_DIRECCION_LABEL:"Direccion, (La usaremos cuando nos pidas enviar las boletas)",
+      INPUT_DOCUMENTO:"Ingresa tu documento CC:",
+      INPUT_DOCUMENTO_LABEL:"Documento, (La usaremos cuando hagas una compra)",
+      INPUT_BIO:"Cuentanos algo de ti",
+      INPUT_BIO_LABEL:"Biografia",
+      INPUT_DOCUMENTO_ICON:"id-card",
+      INPUT_DIRECCION_ICON:"leaf",
+      INPUT_BIO_ICON:"font",
     
     //-----------TEXTOS PARA BOTONES --------------------
       BOTON_CREAR_CUENTA:"Crear Cuenta",
@@ -52,6 +64,8 @@ export default {
       BOTON_TENGO_CUENTA:"Tengo una cuenta",
       BOTON_CREAR_CUENTA:"Crear cuenta",
       BOTON_EXIST:"Cerrar Session",
+      BOTON_COUPONS:"REDIMIR",
+      BOTON_ACTUALIZA:"ACTUALIZA",
       BOTON_TYPE:"outline",
     
       //-------------Loading text ----------------
@@ -120,6 +134,10 @@ export default {
     INACTIVE:"I",
     OK:"OK",
     TEXT_ERROR:"ES UN ERRROR",
+    //------COMNETS--------
+    COMENT_DIRECCION:"Si quieres guarsaremos tu direccion para entregar tus boletas en el futuro",
+    COMENT_DOCUMENTO:"El docuemnto lo usaremos cuando hagas una compra",
+    COMENT_BIO:"Esta informacion nos ayuda a conocerte mejor",
 
 
 

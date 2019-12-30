@@ -1,24 +1,36 @@
-import React,{useState,useEffect} from 'react';
-import {Text, View,StyleSheet } from 'react-native';
+import React,{useRef} from 'react';
+import {StyleSheet,View,Text,ScrollView} from 'react-native';
+import FormEditAccount from '../../../components/forms/FormEditAccount';
+import Toast from 'react-native-easy-toast';
 import AppStyles from '../../../utils/css/theme.style';
 import AppText from '../../../utils/text/text.all';
+import {withNavigation} from 'react-navigation';
 
+export default function Register(props){
 
-export default function EditAccount(props){
+    const {navigation}=props;
+    const toastRef = useRef();
 
-    return(
-        <View style={styles.viewBody}>
-            <Text>
-                  Pagina Editar cuenta ...
-            </Text>
-        </View>
+    return(<ScrollView>
+            <View  style={styles.viewForm}>
+               <FormEditAccount
+               toastRef={toastRef}
+               navigation={navigation}/>
+            </View>
+            
+           <Toast position={AppStyles.CENTRADO} opacity={0.7} ref={toastRef}/>
+    </ScrollView>
+        
     );
+
 }
 
+
+
 const styles = StyleSheet.create({
-    viewBody:{
+    viewForm:{
         flex:1,
-        backgroundColor:AppStyles.PRIMARY_COLOR,
-        paddingTop:AppText.PADDING_HEADER
-      }
-})
+        alignItems:"center",
+        justifyContent:"center"
+        }
+});

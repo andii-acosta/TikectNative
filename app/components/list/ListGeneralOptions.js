@@ -7,7 +7,7 @@ import AppText from '../../utils/text/text.all';
 
 export default function ListGeneralOptions (props){
 
-    const {userInfo,setReloadData,toastRef,navigation}=props;
+    const {userInfo,setReloadData,toastRef,navigation,userdata,userIds}=props;
 
 const menuOptions =[
     {
@@ -17,7 +17,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_2)
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_2,{userdata,userIds})
     },
     {
         title:AppText.LIST_ITEM_3,
@@ -26,7 +26,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight:AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_3)
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_3,{userdata,userIds})
     },
     {
         title:AppText.LIST_ITEM_4,
@@ -35,7 +35,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_4)
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_4,{userdata,userIds})
     },
     {
         title:AppText.LIST_ITEM_5,
@@ -44,7 +44,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_5)
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_5,{userdata,userIds})
     },
     {
         title:AppText.LIST_ITEM_6,
@@ -53,7 +53,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_6)
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_6,{userdata,userIds})
     },
     {
         title:AppText.LIST_ITEM_7,
@@ -62,7 +62,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_7)
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_7,{userdata,userIds})
     }
 ];
 

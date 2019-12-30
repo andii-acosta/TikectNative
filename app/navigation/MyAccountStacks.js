@@ -56,43 +56,92 @@ const MyAccountScreemStacks = createStackNavigator(
         Search:  {
             screen: SearchScreen,
             navigationOptions: () => ({
-                title:AppText.LIST_ITEM_1
+                title:AppText.LIST_ITEM_1,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                        })
             },
          MyEvents: {
             screen: MyEventsScreen,
              navigationOptions: () => ({
-                title: AppText.LIST_ITEM_2
+                title: AppText.LIST_ITEM_2,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                     })
             },
         Coupons:  {
             screen:CouponsScreen,
             navigationOptions: () => ({
-                title: AppText.LIST_ITEM_3
+                title: AppText.LIST_ITEM_3,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                    })
             },
         Pay:  {
             screen: PayScreen,
             navigationOptions: () => ({
-                title: AppText.LIST_ITEM_4
+                title: AppText.LIST_ITEM_4,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                   })
             },
         EditAccount:  {
             screen: EditAccountScreen,
             navigationOptions: () => ({
-                title: AppText.LIST_ITEM_5
+                title: AppText.LIST_ITEM_5,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                                        })
             },
         Contact:  {
             screen: ContactScreen,
             navigationOptions: () => ({
-                title: AppText.LIST_ITEM_6
+                title: AppText.LIST_ITEM_6,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                      })
              },
         Working:  {
             screen: WorkingScreen,
             navigationOptions: () => ({
-                title: AppText.LIST_ITEM_7
+                title: AppText.LIST_ITEM_7,
+                headerStyle: {
+                    backgroundColor: AppStyles.PRIMARY_COLOR,
+                  },
+                  headerTintColor: AppStyles.WHITE_COLOR,
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
                 })
             }
     }

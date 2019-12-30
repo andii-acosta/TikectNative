@@ -28,10 +28,12 @@ let marginHeight = dimensions.height*0.05;
     const [isLoading2,setIsLoading2] = useState(false);
     const [textLoading,setTextLoading] = useState("");
     const [userdata,setUserdata] = useState({});
+    const [userIds,setUserIds] = useState("");
     const toastRef = useRef();
 
-    //console.log("---user----");
+    //console.log("---userIds----");
     //console.log(JSON.stringify(userdata));
+    //console.log(userIds);
     useEffect(() => {
       setReloadData(true);
       setIsLoading2(true);
@@ -45,6 +47,7 @@ let marginHeight = dimensions.height*0.05;
              response.forEach(doc => {
                  let user = doc.data();
                  user.id= doc.id;
+                 setUserIds(doc.id);
                  setUserdata(doc.data());
                   });
              
@@ -71,9 +74,11 @@ let marginHeight = dimensions.height*0.05;
             toastRef={toastRef}/>
             <ListGeneralOptions
             userInfo={userInfo}
+            userdata={userdata}
             setReloadData={setReloadData}
             toastRef={toastRef}
             navigation={navigation}
+            userIds={userIds}
             />
             <View style={styles.viewBoton}>
              
