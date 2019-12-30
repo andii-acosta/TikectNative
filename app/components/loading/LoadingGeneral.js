@@ -46,8 +46,12 @@ const style= StyleSheet.create({
         justifyContent: AppStyles.CENTRADO
     },
     textshow:{
-        color:AppStyles.ACCENT_COLOR,
-        textTransform: "uppercase"
+        textAlign:AppStyles.CENTRADO,
+        color:AppStyles.PURPLE_COLOR,
+        fontWeight:'bold',
+        fontSize:AppText.SUB_TITULO,
+        textTransform: "uppercase",
+        marginTop:AppStyles.MARGIN_10
     }
 })
 

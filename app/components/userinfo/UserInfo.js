@@ -17,7 +17,8 @@ export default function InfoUser(props){
         toastRef,
         setTextLoading,
         setIsLoading,
-        userdata: {name,bio,cell}
+        userdata: {name,bio,cell},
+        setIsLoading2
     } = props; 
 
 
@@ -67,6 +68,7 @@ const uploadImage =  async (uri,nameImage) => {
 };
 
 const updatePhotourl = uid => {
+    setIsLoading2(true);
     console.log(uid);
     firebase.storage()
     .ref(`Photos/Users/Avatar/${uid}`)
@@ -78,6 +80,7 @@ const updatePhotourl = uid => {
       setIsLoading(false);
       console.log("Se cambio la imagen ...");
       toastRef.current.show("Se actualizo el Avnatar");
+      setIsLoading2(false);
     }).catch(() => {
         console.log("Error ...");
         toastRef.current.show("Error al actualizar el Avatar");
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
     },
     displayName:{
         fontWeight:"bold",
-        color:AppStyles.ACCENT_COLOR,
+        color:AppStyles.WHITE_COLOR,
         fontSize:AppText.PARRAFO_GRANDE
 
     }

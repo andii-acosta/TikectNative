@@ -5,10 +5,12 @@ export default {
 
   //-------------COLORES PRIMARIOS -----------------------
 
-  PRIMARY_COLOR:"#FFDCB2",
+  PRIMARY_COLOR:"#9b59b6",
+  PRIMARY_COLOR_ORIGINAL:"#FFDCB2",
   LIGHT_PRIMARY_COLOR: '#C8E6C9',
   DARK_PRIMARY_COLOR:'#388E3C',
-  ACCENT_COLOR:'#FF5722',
+  ACCENT_COLOR:"#FFC107",
+  ACCENT_COLOR_originaL:'#FF5722',
   PRIMARY_TEXT_COLOR:'#212121',
   SECUNDARY_TEXT_COLOR:'#757575',
   DIVIDER_COLOR:'#BDBDBD',
@@ -18,6 +20,9 @@ export default {
   BLUE_COLOR:"#3498db",
   ORAGE_COLOR: "#FFDCB2",
   COLOR_ICON_DEFAULT:"#ccc",
+
+  SECUNDARY_TEXT_COLOR_LT:'#E7EAE8',// GRIS CLARO
+  GREEN_COLOR_LT: "#D0FADF",  //Verde CLARO
   
   //-----------TIPOS DE LETRAS --------------------
   FONT_BOLD:"bold",
@@ -56,6 +61,8 @@ export default {
     //ESTILOS PARA EL INPUT OFICIAL
     INPUT_SIZE_ICON:24,
     INPUT_SIZE_ICON_L:36,
+    INPUT_SIZE_ICON_M:20,
+    INPUT_SIZE_ICON_XL:50,
     INPUT_COLOR_ERROR:"#FF512C",
     INPUT_LABEL_COLOR:"#ADADAD", // GRIS,
     //---------------------------------

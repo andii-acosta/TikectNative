@@ -11,15 +11,6 @@ export default function ListGeneralOptions (props){
 
 const menuOptions =[
     {
-        title:AppText.LIST_ITEM_1,
-        iconType:AppText.ICON_TYPE,
-        iconnameLeft: AppText.LIST_ITEM_ICON_1,
-        iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
-        iconNameRight: AppText.LIST_ITEM_SELECTED,
-        iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_1)
-    },
-    {
         title:AppText.LIST_ITEM_2,
         iconType:AppText.ICON_TYPE,
         iconnameLeft: AppText.LIST_ITEM_ICON_2,

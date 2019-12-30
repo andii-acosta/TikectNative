@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
-import {StyleSheet,ScrollView,View, Text,Dimensions,TouchableOpacity} from 'react-native';
+import React,{useState,useEffect, Fragment} from 'react';
+import {StyleSheet,ScrollView,View, Text,Dimensions,TouchableOpacity,Linking} from 'react-native';
 import * as firebase from 'firebase';
-import {Rating,PricingCard} from 'react-native-elements';
+import {Rating,PricingCard,SocialIcon} from 'react-native-elements';
 import CarouselDetalle from '../../components/bannercarousel/CarouselDetalle';
 import LoadingGeneral from '../../components/loading/LoadingGeneral';
 import AppStyles from '../../utils/css/theme.style';
@@ -17,7 +17,8 @@ export default function Detalle(props){
 
     const {navigation}= props;
     const [isLoading,setIsloading] = useState(false);
-    
+
+     const evento = navigation.state.params.eventos.item;
      const img = navigation.state.params.eventos.item.restautant.image;
      const name = navigation.state.params.eventos.item.restautant.name;
      const rating = navigation.state.params.eventos.item.restautant.rating;
@@ -31,6 +32,11 @@ export default function Detalle(props){
      const publico = navigation.state.params.eventos.item.restautant.publico;
      const caracteristicas = navigation.state.params.eventos.item.restautant.features;
      const tipo = navigation.state.params.eventos.item.restautant.typeTicket;
+     //-------------------------------------------------------------------
+     const urlfacebook = navigation.state.params.eventos.item.restautant.urlfacebook;
+     const urltwitter = navigation.state.params.eventos.item.restautant.urltwitter;
+     const urlyoutube = navigation.state.params.eventos.item.restautant.urlyoutube;
+     const urlinstagram = navigation.state.params.eventos.item.restautant.urlinstagram;
 
      const [imageRestaurant,setImageRestaurant]= useState([]);
 
@@ -81,19 +87,26 @@ export default function Detalle(props){
                title={tipo}
                price={precio}
                info={caracteristicas}
-               onButtonPress={console.log("comprar ...")}
+               onButtonPress={() => navigation.navigate("Payment",{evento})}
                button={{ title:AppText.BOTON_COMPRAR,titleStyle:styles.btnStyle3 }}
+            />
+            <SocialIconDetalle
+            urlfacebook={urlfacebook}
+            urltwitter={urltwitter}
+            urlyoutube={urlyoutube}
+            urlinstagram={urlinstagram}
+            urlweb={null}
             />
             <View style={{flexDirection:'row'}}>
                      <View>
-                     <TouchableOpacity style={styles.btnDetalle} >
+                     <TouchableOpacity style={styles.btnDetalle} onPress={() => navigation.navigate("PyRPage",{evento})}>
                          <View style={styles.btnContainer2}>
                          <Text style={styles.btnStyle2}>{AppText.TEXT_PYR}</Text>
                          </View> 
                          </TouchableOpacity>
                      </View>
                      <View>
-                     <TouchableOpacity style={styles.btnDetalle} >
+                     <TouchableOpacity style={styles.btnDetalle} onPress={() => navigation.navigate("Coments",{evento})}>
                          <View style={styles.btnContainer2}>
                           <Text style={styles.btnStyle2}>{AppText.TEXT_COMENT}</Text>
                          </View> 
@@ -133,6 +146,55 @@ function TitleRestaurante(props){
     );
 }
 
+function SocialIconDetalle(props){
+
+  const {urlfacebook,urltwitter,urlinstagram,urlyoutube,urlweb} = props;
+
+  return(
+    <View>
+          <View style={styles.viewrestaurantTitle} >
+             <View style={{flexDirection:'row'}}>
+               {urlfacebook ?
+               ( <View>
+                   <SocialIcon
+                    type='facebook'
+                    onPress={() => Linking.openURL(urlfacebook)}
+                    />
+                 </View>) :(<Fragment/>)}
+                {urltwitter ? 
+                (<View>
+                   <SocialIcon
+                    type='twitter'
+                    onPress={() => Linking.openURL(urltwitter)}
+                    />
+                 </View>):(<Fragment/>)} 
+                 {urlinstagram ? 
+                 (<View>
+                   <SocialIcon
+                    type='instagram'
+                    onPress={() => Linking.openURL(urlinstagram)}
+                    />
+                 </View>) : (<Fragment/>)}
+                 {urlyoutube ? 
+                 (<View>
+                   <SocialIcon
+                    type='youtube'
+                    onPress={() => Linking.openURL(urlyoutube)}
+                    />
+                 </View>) : (<Fragment/>)}
+                 {urlweb ? 
+                 (<View>
+                   <SocialIcon
+                    type='gitlab'
+                    onPress={() => Linking.openURL(urlweb)}
+                    />
+                 </View>) : (<Fragment/>)}
+                 
+          </View>
+          </View>
+    </View>
+  );
+}
 
 function InfoGeneral(props){
     const {ciudad,publico} = props;
@@ -152,7 +214,6 @@ function InfoGeneral(props){
       </View>
     );
 }
-
 
 
 function DescripcionDetail(props){

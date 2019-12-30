@@ -1,8 +1,12 @@
 import React from 'react';
-import {StyleSheet,View,Text,ActivityIndicator} from 'react-native';
+import {StyleSheet,View,Text,ActivityIndicator,Dimensions} from 'react-native';
 import { Overlay} from 'react-native-elements';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
+
+let dimensions = Dimensions.get("window");
+let imageHeight = dimensions.height;
+let imageWidth = dimensions.width;
 
 export default function Loading(props){
 
@@ -10,7 +14,6 @@ export default function Loading(props){
 
     return(
         <Overlay
-        
         isVisible={isvisible}
         windowBackgroundColor="rgba(0,0,0, .5)"
         overlayBackgroundColor="transparent"
@@ -19,9 +22,9 @@ export default function Loading(props){
             <View style={style.view}>
                   <ActivityIndicator
                   size="large"
-                  color={AppStyles.ORAGE_COLOR}
+                  color={AppStyles.PURPLE_COLOR}
                   />
-                     {textshow && (<Text style={style.textshow}>{textshow}</Text>)}
+            {textshow && (<Text style={style.textshow}>{textshow}</Text>)}
             </View>
         </Overlay>
     );
@@ -30,8 +33,8 @@ export default function Loading(props){
 
 const style= StyleSheet.create({
     overlay:{
-        height:100,
-        width:200,
+        height:imageHeight,
+        width:imageWidth,
         backgroundColor:AppStyles.WHITE_COLOR,
         borderColor:AppStyles.ORAGE_COLOR,
         borderWidth:AppStyles.BORDER_1PX,
@@ -39,12 +42,16 @@ const style= StyleSheet.create({
     },
     view:{
         flex:1,
-        alignContent:"center",
-        justifyContent: "center"
+        alignContent:AppStyles.CENTRADO,
+        justifyContent: AppStyles.CENTRADO
     },
     textshow:{
-        color:AppStyles.ACCENT_COLOR,
-        textTransform: "uppercase"
+        textAlign:AppStyles.CENTRADO,
+        color:AppStyles.PURPLE_COLOR,
+        fontWeight:'bold',
+        fontSize:AppText.SUB_TITULO,
+        textTransform: "uppercase",
+        marginTop:AppStyles.MARGIN_10
     }
 })
 

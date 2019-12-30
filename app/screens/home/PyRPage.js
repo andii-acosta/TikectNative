@@ -4,12 +4,12 @@ import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 
 
-export default function Payment(props){
+export default function PyRPage(props){
 
     return(
         <View style={styles.viewBody}>
             <Text>
-                  Pagina Entradas ...
+                  Pagina preguntas y respuestas frecuentes ...
             </Text>
         </View>
     );

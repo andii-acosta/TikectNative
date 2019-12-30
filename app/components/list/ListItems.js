@@ -45,7 +45,7 @@ function Mycard (props){
 
     const {eventos,navigation,setIsloading} = props;
      
-    const {name,location,image,city,rating,price,typeTicket,publico} = eventos.item.restautant;
+    const {name,location,image,city,rating,price,typeTicket,publico,date} = eventos.item.restautant;
 
     const [imageRestaurant,setImageRestaurant] = useState(null);
 
@@ -74,7 +74,7 @@ function Mycard (props){
                      borderRadius={AppStyles.BORDER_RADIUS_10}
                      source={{uri:imageRestaurant}}
                      style={styles.cardImage}
-                     PlaceholderContent={<ActivityIndicator color ="#fff"/>}
+                     PlaceholderContent={<ActivityIndicator color ={AppStyles.WHITE_COLOR}/>}
                      ></Image>
                  </View>
                  <View style={styles.contenidocard_1}>
@@ -96,17 +96,52 @@ function Mycard (props){
                     </View>
                  </View>
                  <View style={styles.contenidocard_2}>
-                        <Text style={{color:AppStyles.GREEN_COLOR,fontWeight:"bold"}}>
+                        
+                         <View style={{flexDirection:'row'}}>
+                             <Icon 
+                            name={AppText.NAME_ICON_PAGE_PAYMENT}
+                            size={AppStyles.INPUT_SIZE_ICON_M}
+                            color={AppStyles.SECUNDARY_TEXT_COLOR}
+                             />    
+                            <Text style={{color:AppStyles.GREEN_COLOR,fontWeight:"bold",fontSize:AppText.PARRAFO_GRANDE, textAlign: 'left',marginLeft:AppStyles.MARGIN_5}}>
                                 Aporte:  ${price}
                          </Text>
-                         <Text style={{color:AppStyles.SECUNDARY_TEXT_COLOR}} >
+                         </View>
+                         <View style={{flexDirection:'row'}}>
+                             <Icon 
+                            name={AppText.NAME_ICON_PAGE_HOME}
+                            size={AppStyles.INPUT_SIZE_ICON_M}
+                            color={AppStyles.SECUNDARY_TEXT_COLOR}
+                             />    
+                            <Text style={{color:AppStyles.SECUNDARY_TEXT_COLOR,fontWeight:"bold",fontSize:AppText.PARRAFO_GRANDE, textAlign: 'left',marginLeft:AppStyles.MARGIN_5}} >
                                      {typeTicket}
+                             </Text>
+                         </View>
+                         <View >
+                             <View style={{flexDirection:'row'}}>
+                             <Icon 
+                            name={AppText.NAME_ICON_CALENDAR}
+                            size={AppStyles.INPUT_SIZE_ICON_M}
+                            color={AppStyles.SECUNDARY_TEXT_COLOR}
+                             />    
+                         <Text style={{color:AppStyles.PRIMARY_TEXT_COLOR,fontWeight:"bold",fontSize:AppText.PARRAFO_GRANDE, textAlign: 'left',marginLeft:AppStyles.MARGIN_5}}>
+                                  {date}
                          </Text>
-                         <View style={styles.contenidocard_3}>
-                         <Text style={{color:AppStyles.SECUNDARY_TEXT_COLOR,fontWeight:"bold",fontSize:AppText.PARRAFO_GRANDE, textAlign: 'right',alignSelf: 'stretch'}}>
+                         
+                             </View>
+                             <View style={{flexDirection:'row-reverse'}}>
+                         <Text style={{color:AppStyles.SECUNDARY_TEXT_COLOR,fontWeight:"bold",fontSize:AppText.PARRAFO_GRANDE, textAlign: 'right',alignSelf: 'stretch',marginRight:AppStyles.MARGIN_5}}>
                                   {publico}
                          </Text>
-                 </View>
+                         <Icon 
+                            name={AppText.NAME_ICON_AGE}
+                            size={AppStyles.INPUT_SIZE_ICON_M}
+                            color={AppStyles.SECUNDARY_TEXT_COLOR}
+                            style={{marginRight:AppStyles.MARGIN_10}}
+                             /> 
+                             </View>
+                         </View>
+                         
                  </View>
                  <View style={styles.contenidocard_1}>
                  <View style={styles.contenidocard_2}>
@@ -119,7 +154,7 @@ function Mycard (props){
                          </TouchableOpacity>
                      </View>
                      <View>
-                     <TouchableOpacity style={styles.btnDetalle} onPress={() => navigation.navigate("Detalle",{eventos})}>
+                     <TouchableOpacity style={styles.btnDetalle} onPress={() => navigation.navigate("Payment",{eventos})}>
                          <View style={styles.btnContainer2}>
                           <Text style={styles.btnStyle2}>{AppText.BOTON_COMPRAR}</Text>
                          </View> 

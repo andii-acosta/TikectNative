@@ -1,12 +1,13 @@
 import React,{useState,useEffect, Fragment,useRef} from 'react';
 import {Text, View,StyleSheet,Dimensions,ScrollView,Alert} from 'react-native';
 import { ListItem,Divider } from 'react-native-elements'
-import AppStyles from '../../../utils/css/theme.style';
-import LoadingGeneral from '../../../components/loading/LoadingGeneral';
-import AppText from '../../../utils/text/text.all';
-import ModalTieckt from '../../../components/modals/ModalTikect';
+import AppStyles from '../../utils/css/theme.style';
+import PautaHome from '../../components/bannercarousel/PautaHome';
+import LoadingGeneral from '../../components/loading/LoadingGeneral';
+import AppText from '../../utils/text/text.all';
+import ModalTieckt from '../../components/modals/ModalTikect';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {firebaseApp} from '../../../utils/Firebase';
+import {firebaseApp} from '../../utils/Firebase';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 const db = firebase.firestore(firebaseApp);
@@ -14,9 +15,9 @@ const db = firebase.firestore(firebaseApp);
 let dimensions = Dimensions.get("window");
 let padding = dimensions.height*0.04;
 
-export default function MyEvents(props){
+export default function Tikects(props){
 
-
+   
     const [userInfo,setUserInfo] = useState({});
     const [userdata,setUserdata] = useState({});
     const [items,setItems] = useState([]);
@@ -88,6 +89,10 @@ const alertUsed= (l) => {
 
     return(
         <View style={styles.contentStyle}>
+          
+          <View>
+             <PautaHome />
+        </View>
         <View style={styles.titleStyle}>
              <Text style={styles.titletextstyle}>{AppText.TEXT_PAGE_PAYMENT}</Text>
         </View>

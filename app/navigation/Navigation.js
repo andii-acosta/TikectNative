@@ -57,7 +57,7 @@ const NavigationStacks = createBottomTabNavigator(
 
    {
      initialRouteName: AppText.NAME_PAGE_DEFAULT,
-     order: ["MyAccount","Home","Payment"],
+     order: [AppText.NAME_PAGE_ORDER1,AppText.NAME_PAGE_ORDER2,AppText.NAME_PAGE_ORDER3],
      tabBarOptions:{
        inactiveTintColor: AppStyles.WHITE_COLOR,
        activeTintColor: AppStyles.ACCENT_COLOR,

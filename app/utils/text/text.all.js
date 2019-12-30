@@ -7,9 +7,16 @@ export default {
   TITLE_PAGE_HOME:"Eventos",
   TITLE_PAGE_MYACCOUNT:"Mi Cuenta",
   TITLE_PAGE_PAYMENT:"Entradas",
-  NAME_PAGE_DEFAULT:"Home",
+  TEXT_PAGE_PAYMENT:"Aqui puedes ver tus entradas",
+  NAME_PAGE_DEFAULT:"MyAccount",
+  NAME_PAGE_ORDER1:"MyAccount",
+  NAME_PAGE_ORDER2:"Home",
+  NAME_PAGE_ORDER3:"Payment",
   NAME_ICON_LIKE: "heart",
   NAME_ICON_PAGE_HOME:"leaf",
+  NAME_ICON_MODAL_LOCATION:"home",
+  NAME_ICON_AGE: "user-plus",
+  NAME_ICON_CALENDAR:"calendar",
   NAME_ICON_PAGE_MYACCOUNT:"user",
   NAME_ICON_PAGE_PAYMENT:"shopping-basket",
   NAME_BUTTONS_GROUP:['Todos', 'Recomendados', 'Promociones'],
@@ -48,7 +55,7 @@ export default {
       BOTON_TYPE:"outline",
     
       //-------------Loading text ----------------
-      TEXT_SHOW_PROCESS: "Procesando ...",
+      TEXT_SHOW_PROCESS: "TikectNative",
       TEXT_TYC: "para crear tu cuenta debes aceptar los terminos y condiciones",
       //-------------Loading text ----------------
       TEXT_PYR: "Preguntas Frecuente",
@@ -108,6 +115,11 @@ export default {
     CARD_FIRST:"D",
     CARD_SECOND:"P",
     CARD_THRID:"G",
+    //-------ESTATUS---------
+    ACTIVE:"A",
+    INACTIVE:"I",
+    OK:"OK",
+    TEXT_ERROR:"ES UN ERRROR",
 
 
 

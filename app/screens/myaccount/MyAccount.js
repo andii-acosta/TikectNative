@@ -6,6 +6,7 @@ import Loading from '../../components/loading/Loading';
 import ListGeneralOptions from '../../components/list/ListGeneralOptions';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
+import LoadingGeneral from '../../components/loading/LoadingGeneral';
 import {withNavigation} from 'react-navigation';
 import {firebaseApp} from "../../utils/Firebase";
 import firebase from 'firebase/app';
@@ -24,12 +25,16 @@ let marginHeight = dimensions.height*0.05;
     const [userInfo,setUserInfo] = useState({});
     const [reloadData,setReloadData] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
+    const [isLoading2,setIsLoading2] = useState(false);
     const [textLoading,setTextLoading] = useState("");
     const [userdata,setUserdata] = useState({});
     const toastRef = useRef();
 
+    //console.log("---user----");
+    //console.log(JSON.stringify(userdata));
     useEffect(() => {
       setReloadData(true);
+      setIsLoading2(true);
       (async() => {
           const user = await firebase.auth().currentUser;
             setUserInfo(user.providerData[0]);
@@ -46,6 +51,7 @@ let marginHeight = dimensions.height*0.05;
                });
       })();
       setReloadData(false);
+      setIsLoading2(false);
   }, [reloadData])
 
   useEffect(() => {
@@ -58,6 +64,7 @@ let marginHeight = dimensions.height*0.05;
         <ScrollView >
           <View style={styles.viewUserinfo}>
           <InfoUser 
+           setIsLoading2={setIsLoading2}
             userInfo ={userInfo}
             userdata={userdata}
             setReloadData={setReloadData}
@@ -86,6 +93,10 @@ let marginHeight = dimensions.height*0.05;
             <Loading
             isvisible={isLoading}
             textshow={textLoading}
+            />
+            <LoadingGeneral
+            isvisible={isLoading2}
+            textshow={AppText.TEXT_SHOW_PROCESS}
             />
           </View>
             
