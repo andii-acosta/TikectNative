@@ -98,7 +98,7 @@ const updatePhotourl = uid => {
             onEditPress={changeAvatar}
             containerStyle={styles.userInfoAvatar}
             source={{
-                uri:photoURL ? photoURL : "https://api.adorable.io/avatars/100/abott@adorable.png"
+                uri:photoURL ? photoURL : AppText.AVATAR_DEFAULT
             }}
             />
 

@@ -11,13 +11,22 @@ export default function ListGeneralOptions (props){
 
 const menuOptions =[
     {
+        title:AppText.LIST_ITEM_1,
+        iconType:AppText.ICON_TYPE,
+        iconnameLeft: AppText.LIST_ITEM_ICON_1,
+        iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
+        iconNameRight: AppText.LIST_ITEM_SELECTED,
+        iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_1,{userdata,userIds,setReloadData})
+    },
+    {
         title:AppText.LIST_ITEM_2,
         iconType:AppText.ICON_TYPE,
         iconnameLeft: AppText.LIST_ITEM_ICON_2,
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_2,{userdata,userIds})
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_2,{userdata,userIds,setReloadData})
     },
     {
         title:AppText.LIST_ITEM_3,
@@ -26,7 +35,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight:AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_3,{userdata,userIds})
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_3,{userdata,userIds,setReloadData})
     },
     {
         title:AppText.LIST_ITEM_4,
@@ -35,7 +44,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_4,{userdata,userIds})
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_4,{userdata,userIds,setReloadData})
     },
     {
         title:AppText.LIST_ITEM_5,
@@ -44,7 +53,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_5,{userdata,userIds})
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_5,{userdata,userIds,setReloadData})
     },
     {
         title:AppText.LIST_ITEM_6,
@@ -53,7 +62,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_6,{userdata,userIds})
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_6,{userdata,userIds,setReloadData})
     },
     {
         title:AppText.LIST_ITEM_7,
@@ -62,7 +71,7 @@ const menuOptions =[
         iconColorLeft:AppStyles.COLOR_ICON_DEFAULT,
         iconNameRight: AppText.LIST_ITEM_SELECTED,
         iconColorRigth:AppStyles.COLOR_ICON_DEFAULT,
-        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_7,{userdata,userIds})
+        onPress:() => navigation.navigate(AppText.NAVIGATE_ITEM_7,{userdata,userIds,setReloadData})
     }
 ];
 

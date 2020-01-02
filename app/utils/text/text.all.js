@@ -3,7 +3,7 @@
 export default {
 
   //-----------TEXTOS DE TITULOS Y ESTATICOS-------------
-
+  AVATAR_DEFAULT:"https://api.adorable.io/avatars/100/abott@adorable.png", 
   TITLE_PAGE_HOME:"Eventos",
   TITLE_PAGE_MYACCOUNT:"Mi Cuenta",
   TITLE_PAGE_PAYMENT:"Entradas",
@@ -17,6 +17,7 @@ export default {
   NAME_ICON_MODAL_LOCATION:"home",
   NAME_ICON_AGE: "user-plus",
   NAME_ICON_CALENDAR:"calendar",
+  NAME_ICON_COMENT: "angellist",
   NAME_ICON_PAGE_MYACCOUNT:"user",
   NAME_ICON_PAGE_PAYMENT:"shopping-basket",
   WHATSAPP: "Whatsapp",
@@ -43,6 +44,8 @@ export default {
       INPUT_CONTRASENA_ICON:"at",
       INPUT_COUPONS:"Ingresa tu cupon",
       INPUT_COUPONS_LABEL:"Cupones",
+      INPUT_COMENT:"Ingresa tu experiencia",
+      INPUT_COMENT_LABEL:"Experiencia",
 
 
       INPUT_DIRECCION:"Ingresa tu direccion",
@@ -73,8 +76,8 @@ export default {
       TEXT_TYC: "para crear tu cuenta debes aceptar los terminos y condiciones",
       //-------------Loading text ----------------
       TEXT_PYR: "Preguntas Frecuente",
-      TEXT_COMENT:"Comentarios",
-    
+      TEXT_COMENT:"Experiencias",
+      TEXT_COMENT_ADD:"Agregar experiencia",
       //------------FACEBOOK ------------
       ID_FACEBOOK: "1006507323075344",
 
@@ -94,7 +97,7 @@ export default {
 
 
     //--------MENU GENERAL OPTIONS -------------
-    LIST_ITEM_1: "Buscar",
+    LIST_ITEM_1: "Preguntas Frecuentes",
     LIST_ITEM_2: "Mis Eventos",
     LIST_ITEM_3: "Cupones",
     LIST_ITEM_4: "Medios de pago",
@@ -138,6 +141,8 @@ export default {
     COMENT_DIRECCION:"Si quieres guarsaremos tu direccion para entregar tus boletas en el futuro",
     COMENT_DOCUMENTO:"El docuemnto lo usaremos cuando hagas una compra",
     COMENT_BIO:"Esta informacion nos ayuda a conocerte mejor",
+    //----TITUTLOS------------
+    TITLE_CUPONS:"AQUI PUEDES REDIMIR TUS CUPONES",
 
 
 

@@ -15,7 +15,7 @@ export default function ForgetAccount(props){
             <View>
             <TouchableOpacity style={styles.titlestyle}>
                <View style={styles.btnContainer}>
-                    <Text style={styles.btnStyle}>AQUI PUEDES REDIMIR TUS CUPONES</Text>
+                 <Text style={styles.btnStyle}>{AppText.TITLE_CUPONS}</Text>
                </View> 
              </TouchableOpacity>
             </View>
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     containerStyle:{
             flex:1,
             alignItems:"center",
-            justifyContent:"center"
+            justifyContent:"center",
+            backgroundColor:AppStyles.PRIMARY_COLOR
         },
         btnContainer: {
             marginTop:AppStyles.MARGIN_20,

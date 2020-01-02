@@ -6,7 +6,6 @@ import Loading from '../../components/loading/Loading';
 import ListGeneralOptions from '../../components/list/ListGeneralOptions';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
-import LoadingGeneral from '../../components/loading/LoadingGeneral';
 import {withNavigation} from 'react-navigation';
 import {firebaseApp} from "../../utils/Firebase";
 import firebase from 'firebase/app';
@@ -35,7 +34,6 @@ let marginHeight = dimensions.height*0.05;
     //console.log(JSON.stringify(userdata));
     //console.log(userIds);
     useEffect(() => {
-      setReloadData(true);
       setIsLoading2(true);
       (async() => {
           const user = await firebase.auth().currentUser;
@@ -98,10 +96,6 @@ let marginHeight = dimensions.height*0.05;
             <Loading
             isvisible={isLoading}
             textshow={textLoading}
-            />
-            <LoadingGeneral
-            isvisible={isLoading2}
-            textshow={AppText.TEXT_SHOW_PROCESS}
             />
           </View>
             

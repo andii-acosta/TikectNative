@@ -189,7 +189,8 @@ const styles = StyleSheet.create({
         marginBottom:AppStyles.MARGIN_5
       },
       listcontenstyle:{
-        marginTop:AppStyles.MARGIN_10
+        marginTop:AppStyles.MARGIN_10,
+        backgroundColor:AppStyles.PRIMARY_COLOR
       },
       textstyle:{
         fontWeight:'bold',

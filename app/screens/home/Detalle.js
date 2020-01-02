@@ -17,13 +17,12 @@ export default function Detalle(props){
 
     const {navigation}= props;
     const [isLoading,setIsloading] = useState(false);
-
+    
      const evento = navigation.state.params.eventos.item;
      const img = navigation.state.params.eventos.item.restautant.image;
      const name = navigation.state.params.eventos.item.restautant.name;
      const rating = navigation.state.params.eventos.item.restautant.rating;
      const description = navigation.state.params.eventos.item.restautant.description;
-     const id = navigation.state.params.eventos.item.restautant.id;
      //-------------------------------------------------------------------
      const direccion = navigation.state.params.eventos.item.restautant.location;
      const fecha = navigation.state.params.eventos.item.restautant.date;
@@ -37,8 +36,11 @@ export default function Detalle(props){
      const urltwitter = navigation.state.params.eventos.item.restautant.urltwitter;
      const urlyoutube = navigation.state.params.eventos.item.restautant.urlyoutube;
      const urlinstagram = navigation.state.params.eventos.item.restautant.urlinstagram;
+     //------------------------------------------------------------------
+     const direccion = navigation.state.params.eventos.item.restautant.artistas;
 
      const [imageRestaurant,setImageRestaurant]= useState([]);
+     const [ratingState,setRatingState] = useState(rating);
 
    useEffect(() => {
        const arryUrl= [];
@@ -74,7 +76,7 @@ export default function Detalle(props){
             name={name}
             fecha={fecha}
             direccion={direccion}
-            rating={rating}
+            rating={ratingState}
             />
             <InfoGeneral
             ciudad={ciudad}
@@ -106,7 +108,7 @@ export default function Detalle(props){
                          </TouchableOpacity>
                      </View>
                      <View>
-                     <TouchableOpacity style={styles.btnDetalle} onPress={() => navigation.navigate("Coments",{evento})}>
+                     <TouchableOpacity style={styles.btnDetalle} onPress={() => navigation.navigate("Coments",{evento,setRatingState})}>
                          <View style={styles.btnContainer2}>
                           <Text style={styles.btnStyle2}>{AppText.TEXT_COMENT}</Text>
                          </View> 

@@ -21,7 +21,7 @@ export default function ListItems(props){
                  <FlatList
                  style={{borderRadius:AppStyles.BORDER_RADIUS_10}}
                  data={items}
-                 renderItem={eventos =>  <Mycard eventos={eventos} setIsloading={setIsloading} navigation={navigation} /> }
+                 renderItem={eventos =>  <Mycard eventos={eventos} setIsloading={setIsloading} navigation={navigation}/> }
                  keyExtractor={(item, index) => {return index.toString()}}
                  onEndReached={handlerLoadMore}
                  onEndReachedThreshold={0}

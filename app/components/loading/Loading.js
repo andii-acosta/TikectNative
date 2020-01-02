@@ -5,8 +5,8 @@ import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 
 let dimensions = Dimensions.get("window");
-let imageHeight = dimensions.height;
-let imageWidth = dimensions.width;
+let imageHeight = dimensions.height*0.8;
+let imageWidth = dimensions.width*0.9;
 
 export default function Loading(props){
 

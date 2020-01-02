@@ -23,7 +23,8 @@ function FormEditAccount(props){
     const { toastRef,navigation} = props;
     const user = navigation.state.params.userdata;
     const userKey = navigation.state.params.userIds;
-    const {bio,cell,name,email,location,id,createBy,creteAt,isadmin,password,typeperson,typeuser} = user;
+    const setReloadData = navigation.state.params.setReloadData;
+    const {bio,cell,name,email,location,document} = user;
     const [nameNew,setNameNew] = useState("");
     const [celular,setCelular] = useState("");
     const [emailNew,setEmailNew] = useState("");
@@ -32,9 +33,9 @@ function FormEditAccount(props){
     const [bioNew,setBioNew] = useState("");
     const [isVisibleLoadin,setisvisibleLoading] = useState(false);
 
-    console.log(userKey);
+    //console.log("userKey : "+userKey);
 
-    const crearcuenta = async () =>{
+    const Actualizarcuenta = () => {
         setisvisibleLoading(true);
          if(!emailNew || !nameNew || !celular ){
             toastRef.current.show("El nombre, email y celular son obligatorios",3000);
@@ -42,30 +43,33 @@ function FormEditAccount(props){
             if(validateEmail(email)){
                     setisvisibleLoading(true);
                     console.log("datos: "+ "nombre: " + nameNew+ "celular: " + celular+ "direccion: " + direccion+ "email: " + emailNew+ " bio: " + bioNew+ " documento: " + documento );
-                    
-                    const ref = firebase.database().ref("App/User/Account/");
+                    updateAccount();
+                }else{
+                toastRef.current.show("El email no es correcto");
+            }
+         }
+         setisvisibleLoading(false);
+    };
+
+    const updateAccount = () => {
+          const refEvent = db.collection("App/User/Account/").doc(userKey);
                     var newUserData = {
                         "name": nameNew ? nameNew : name,
                         "email": emailNew ? emailNew : email,
                         "location": direccion ? direccion : location,
                         "cell": celular ? celular : cell,
                         "bio": bioNew ? bioNew : bio,
-                        "id": documento ? documento : id,
-                        "createBy":createBy,
-                        "creteAt":creteAt,
-                        "isadmin":isadmin,
-                        "password":password,
-                        "typeperson":typeperson,
-                        "typeuser":typeuser
+                        "document": documento ? documento : 0
                       };
-                    ref.child(userKey).update(newUserData);
-                    toastRef.current.show("Actualizado OK");  
-                }else{
-                toastRef.current.show("El email no es correcto");
-            }
-         }
-         setisvisibleLoading(false);
-    }
+                      refEvent.update(newUserData).then(() =>{
+                        toastRef.current.show("Actualizado OK");
+                        setisvisibleLoading(false);
+                        setReloadData(true);
+                        navigation.goBack();
+                      }).catch(() =>{
+                        toastRef.current.show("Error actualizando los datos"); 
+                      });
+    };
 
     return(
         <ScrollView>
@@ -129,7 +133,7 @@ function FormEditAccount(props){
                 /> }
              />
              <Input
-            placeholder={id ? id : AppText.INPUT_DOCUMENTO}
+            placeholder={document ? document : AppText.INPUT_DOCUMENTO}
             containerStyle={styles.inputForm}
             label={AppText.INPUT_DOCUMENTO_LABEL}
             labelStyle={styles.labelStyles}
@@ -157,7 +161,7 @@ function FormEditAccount(props){
                 /> }
              />
            <View style={styles.viewBoton}>
-             <TouchableOpacity onPress={crearcuenta}>
+             <TouchableOpacity onPress={Actualizarcuenta}>
                <View style={styles.btnContainer}>
                     <Text style={styles.btnStyle}>{AppText.BOTON_ACTUALIZA}</Text>
                </View> 
@@ -208,7 +212,7 @@ const styles = StyleSheet.create({
     viewcontainer:{
         alignContent:"center",
         justifyContent:"center",
-        marginTop:formHeight,
+        marginTop:AppStyles.MARGIN_10,
         marginBottom:AppStyles.MARGIN_20
     },
     viewcontainertyc:{
