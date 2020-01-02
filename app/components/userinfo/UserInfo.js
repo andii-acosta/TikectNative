@@ -15,10 +15,8 @@ export default function InfoUser(props){
         userInfo: {uid,displayName,email,photoURL},
         setReloadData,
         toastRef,
-        setTextLoading,
         setIsLoading,
-        userdata: {name,bio,cell},
-        setIsLoading2
+        userdata: {name},
     } = props; 
 
 
@@ -27,7 +25,7 @@ export default function InfoUser(props){
     const data = Array.from({length:gradientHeight});
 
 const changeAvatar=async () =>{
-
+        
     const resultPermission = await Permissions.askAsync(Permissions.CAMERA_ROLL);
     const resultPermissionCamera = resultPermission.permissions.cameraRoll.status;
 
@@ -42,10 +40,8 @@ const changeAvatar=async () =>{
         if(result.cancelled){
             toastRef.current.show("Galeria Cerrada");
         }else{
-            uploadImage(result.uri,uid).then(() => {
-                console.log("imagen up ....");  
+            uploadImage(result.uri,uid).then(() => { 
                 updatePhotourl(uid);
-                setIsLoading(false);
             })
         }
 
@@ -54,8 +50,7 @@ const changeAvatar=async () =>{
 }
 
 const uploadImage =  async (uri,nameImage) => {
-    //setTextLoading("Cargando avatar");
-    //setIsLoading(true);
+    setIsLoading(true);
     const response = await fetch(uri);
     const blob = await response.blob();
     console.log(uri+"  " + nameImage);
@@ -63,13 +58,12 @@ const uploadImage =  async (uri,nameImage) => {
     .storage()
     .ref()
     .child(`Photos/Users/Avatar/${nameImage}`);
-    console.log(blob);
+    setIsLoading(false);
     return ref.put(blob);
 };
 
 const updatePhotourl = uid => {
-    setIsLoading2(true);
-    console.log(uid);
+    setIsLoading(true);
     firebase.storage()
     .ref(`Photos/Users/Avatar/${uid}`)
     .getDownloadURL()
@@ -78,11 +72,9 @@ const updatePhotourl = uid => {
       await firebase.auth().currentUser.updateProfile(update);
       setReloadData(true);
       setIsLoading(false);
-      console.log("Se cambio la imagen ...");
       toastRef.current.show("Se actualizo el Avnatar");
-      setIsLoading2(false);
     }).catch(() => {
-        console.log("Error ...");
+        setIsLoading(false);
         toastRef.current.show("Error al actualizar el Avatar");
     })
 }

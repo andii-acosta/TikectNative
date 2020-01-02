@@ -24,7 +24,6 @@ let marginHeight = dimensions.height*0.05;
     const [userInfo,setUserInfo] = useState({});
     const [reloadData,setReloadData] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
-    const [isLoading2,setIsLoading2] = useState(false);
     const [textLoading,setTextLoading] = useState("");
     const [userdata,setUserdata] = useState({});
     const [userIds,setUserIds] = useState("");
@@ -34,7 +33,6 @@ let marginHeight = dimensions.height*0.05;
     //console.log(JSON.stringify(userdata));
     //console.log(userIds);
     useEffect(() => {
-      setIsLoading2(true);
       (async() => {
           const user = await firebase.auth().currentUser;
             setUserInfo(user.providerData[0]);
@@ -52,20 +50,13 @@ let marginHeight = dimensions.height*0.05;
                });
       })();
       setReloadData(false);
-      setIsLoading2(false);
   }, [reloadData])
-
-  useEffect(() => {
-    setReloadData(true);
-
-        setReloadData(false);
-  }, []);
 
     return(
         <ScrollView >
           <View style={styles.viewUserinfo}>
           <InfoUser 
-           setIsLoading2={setIsLoading2}
+           setIsLoading={setIsLoading}
             userInfo ={userInfo}
             userdata={userdata}
             setReloadData={setReloadData}

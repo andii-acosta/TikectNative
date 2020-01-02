@@ -143,6 +143,7 @@ export default {
     COMENT_BIO:"Esta informacion nos ayuda a conocerte mejor",
     //----TITUTLOS------------
     TITLE_CUPONS:"AQUI PUEDES REDIMIR TUS CUPONES",
+    TITLE_ARTIST:"ARTISTAS CONFIRMADOS",
 
 
 

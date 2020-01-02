@@ -1,7 +1,7 @@
 import React,{useState,useEffect, Fragment} from 'react';
 import {StyleSheet,ScrollView,View, Text,Dimensions,TouchableOpacity,Linking} from 'react-native';
 import * as firebase from 'firebase';
-import {Rating,PricingCard,SocialIcon} from 'react-native-elements';
+import {Rating,PricingCard,SocialIcon,Divider} from 'react-native-elements';
 import CarouselDetalle from '../../components/bannercarousel/CarouselDetalle';
 import LoadingGeneral from '../../components/loading/LoadingGeneral';
 import AppStyles from '../../utils/css/theme.style';
@@ -10,6 +10,7 @@ import AppText from '../../utils/text/text.all';
 let dimensions = Dimensions.get("window");
 let imageHeight = Math.round(dimensions.height * AppText.SIZE_GALERY_DETAIL);
 let padding = dimensions.height*0.04;
+let widthScreen = dimensions.width*0.9;
 
 const anchodisplay = Dimensions.get("window").width;
 
@@ -37,7 +38,7 @@ export default function Detalle(props){
      const urlyoutube = navigation.state.params.eventos.item.restautant.urlyoutube;
      const urlinstagram = navigation.state.params.eventos.item.restautant.urlinstagram;
      //------------------------------------------------------------------
-     const direccion = navigation.state.params.eventos.item.restautant.artistas;
+     const artistas = navigation.state.params.eventos.item.restautant.artistas;
 
      const [imageRestaurant,setImageRestaurant]= useState([]);
      const [ratingState,setRatingState] = useState(rating);
@@ -115,6 +116,10 @@ export default function Detalle(props){
                          </TouchableOpacity>
                      </View>
             </View>
+            <Divider style={styles.dividerstyle} />
+            <DataArtistas
+            data={artistas}
+            />
             <DescripcionDetail
             description={description}
             />
@@ -217,6 +222,22 @@ function InfoGeneral(props){
     );
 }
 
+function DataArtistas(props){
+  const {data} = props;
+  return(
+    <View style={styles.artStyle}>
+       <Text style={styles.titleartistas}>{AppText.TITLE_ARTIST}</Text>
+          {data.map(art => (
+             <TouchableOpacity style={styles.btnArt} onPress={() => Linking.openURL(art.urlWeb)}>
+                <View style={styles.btnContainer4}>
+                   <Text style={styles.btnStyle4}>{art.name}</Text>
+                </View> 
+             </TouchableOpacity>
+          ))
+          }
+    </View>
+  );
+}
 
 function DescripcionDetail(props){
     const {description} = props;
@@ -296,5 +317,45 @@ const styles = StyleSheet.create({
       },
       btnDetalle:{
           margin:AppStyles.MARGIN_10
+      },
+      artStyle:{
+        alignItems:"center"
+      },
+      titleartStyle:{
+        color:AppStyles.PRIMARY_COLOR,
+        fontSize:AppText.SUB_TITULO,
+        fontWeight:"bold",
+        textAlign:"left",
+        textAlignVertical:'center'
+      },
+      titleartistas:{
+        fontWeight:'bold',
+        textAlign:'center',
+        fontSize:AppText.SUB_TITULO,
+        color:AppStyles.ACCENT_COLOR
+      },
+      dividerstyle:{
+        backgroundColor:AppStyles.ACCENT_COLOR,
+        marginTop:AppStyles.MARGIN_5,
+        marginRight:AppStyles.MARGIN_10,
+        marginLeft:AppStyles.MARGIN_10
+      },
+      btnArt:{
+        marginTop:AppStyles.MARGIN_5
+      },
+      btnContainer4: {
+        marginTop:AppStyles.MARGIN_5,
+        backgroundColor: "transparent",
+        borderColor: AppStyles.ACCENT_COLOR,
+        borderWidth:AppStyles.BORDER_DEFAULT,
+        borderRadius: AppStyles.BORDER_RADIUS
+      },
+      btnStyle4: {
+        margin: AppStyles.MARGIN_10,
+        paddingHorizontal: AppStyles.MARGIN_10,
+        textAlign: AppStyles.CENTRADO,
+        backgroundColor: "transparent",
+        color: AppStyles.ACCENT_COLOR,
+        fontSize: AppText.PARRAFO_GRANDE
       },
 })
