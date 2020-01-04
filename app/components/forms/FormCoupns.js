@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {View,StyleSheet,Dimensions,TouchableOpacity,Text} from 'react-native';
 import {Icon,Input} from 'react-native-elements';
 import Loading from '../loading/Loading';
@@ -19,46 +19,96 @@ let inputWidth = dimensions.width * 0.8;
 
  function FormCoupns(props){
 
-   const [cuponnew,setCupon] = useState("");
-   const [visibleLoadin,setVisibleLoading] = useState(false);
-   const [cuponExist,setCuponExist] = useState(false);
    const { toastRef,navigation } = props;
+   const [cuponnew,setCupon] = useState("");
+   const [couponsActive,setCouponsActive] = useState([]);
+   const [couponsUsed,setCouponsUsed] = useState([]);
+   const [reloadCoupons,setReloadCoupons] = useState(false);
+   const [visibleLoadin,setVisibleLoading] = useState(false);
+   const user = navigation.state.params.userdata;
+   const userKey = navigation.state.params.userIds;
+
+    //console.log("---couponsActive----");
+    //console.log(JSON.stringify(couponsActive));
+    
+   useEffect(() => {
+    setVisibleLoading(true);
+        (async() => {
+              let resultItems = [];
+              let citiesRef = db.collection("App/Info/Promos");
+              let queryRef = citiesRef.where('state', '==',AppText.ACTIVE);
+         
+           await queryRef.get().then(response => {
+     
+             response.forEach(doc => {
+                 let coupon = doc.data();
+                 coupon.id = doc.id;
+                 resultItems.push(doc.data().code);
+     
+             });
+             setCouponsActive(resultItems);
+             setVisibleLoading(false);
+         });
+          
+          })();
+          setReloadCoupons(false);
+}, [reloadCoupons]);
+
+
+useEffect(() => {
+    setVisibleLoading(true);
+        (async() => {
+              let resultItems = [];
+              let citiesRef = db.collection("App/Info/Coupons");
+              let queryRef = citiesRef.where('userId', '==',userKey);
+         
+           await queryRef.get().then(response => {
+     
+             response.forEach(doc => {
+                 let coupon = doc.data();
+                 coupon.id = doc.id;
+                 resultItems.push(doc.data().code);
+     
+             });
+             setCouponsUsed(resultItems);
+             setVisibleLoading(false);
+         });
+          
+          })();
+          setReloadCoupons(false);
+}, [reloadCoupons]);
 
 
 const redimircupon = async () =>{
-    setVisibleLoading(true);
-    setCuponExist(false);
+    
     if(!cuponnew){
         toastRef.current.show("Ingresa el cupon",2000);
     }else{
-        console.log("****cupon: " + cuponnew); 
-        (async() => {
-            const ref = db.collection("App/Info/Promos").where('code', '==', cuponnew);
-  
-              await ref.get().then(response => {
-               response.forEach(doc => {
-                   let cupon = doc.data();
-                   cupon.id= doc.id;
-                   console.log("-----------------");
-                   console.log(JSON.stringify(cupon));
-                   setCuponExist(doc.data());
-                    });
-                 });
-                 console.log("**********************");
-                 console.log(JSON.stringify(cuponExist));
-                 if(cuponExist == false){
-                    toastRef.current.show("El cupon no esta activo",2000);
-                 }else{
-                    if(cuponExist.status==AppText.ACTIVE && cuponExist.code == cuponnew && cuponExist != false){
-                        toastRef.current.show("Ya redimiste este cupon",2000);
-                        
-                      }else if(cuponExist.status==AppText.ACTIVE && cuponExist.code != cuponnew && cuponExist != false){
-                        toastRef.current.show("Cupon redimido OK",2000);
-                        
-                      }
-                 }
-                     
-        })();
+        if(!couponsActive.includes(cuponnew)){
+            toastRef.current.show("El cupon no esta activo",2000);
+        }else{
+            if(couponsUsed.includes(cuponnew)){
+                toastRef.current.show("Ya usaste este codigo",2000);
+            }else{
+                setVisibleLoading(true);
+                db.collection("App/Info/Coupons").add({
+                    code:cuponnew,
+                    state:AppText.ACTIVE,
+                    userId:userKey
+                }).then(() =>{
+                    setReloadCoupons(true);
+                    setVisibleLoading(false);
+                    toastRef.current.show("Cupon redimido con exito",2000);
+                }
+                ).catch((error) =>{
+                    setReloadCoupons(true);
+                    setVisibleLoading(false);
+                    toastRef.current.show("Error al redimir el cupon");
+                    console.log(error);
+                });
+            }
+        }
+        
     }
     setVisibleLoading(false);
 }

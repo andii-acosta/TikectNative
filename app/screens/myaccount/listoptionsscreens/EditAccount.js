@@ -4,7 +4,6 @@ import FormEditAccount from '../../../components/forms/FormEditAccount';
 import Toast from 'react-native-easy-toast';
 import AppStyles from '../../../utils/css/theme.style';
 import AppText from '../../../utils/text/text.all';
-import {withNavigation} from 'react-navigation';
 
 export default function Register(props){
 

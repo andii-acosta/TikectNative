@@ -74,6 +74,7 @@ export default {
       //-------------Loading text ----------------
       TEXT_SHOW_PROCESS: "TikectNative",
       TEXT_TYC: "para crear tu cuenta debes aceptar los terminos y condiciones",
+      TEXT_BTN_PQRS:"VER MAS INFORMACION",
       //-------------Loading text ----------------
       TEXT_PYR: "Preguntas Frecuente",
       TEXT_COMENT:"Experiencias",
@@ -118,7 +119,7 @@ export default {
 
     //--------NAVIGATE PAGES LIST ---------------
 
-    NAVIGATE_ITEM_1: "Search",
+    NAVIGATE_ITEM_1: "Questionyresponse",
     NAVIGATE_ITEM_2: "MyEvents",
     NAVIGATE_ITEM_3: "Coupons",
     NAVIGATE_ITEM_4: "Pay",

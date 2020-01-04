@@ -1,9 +1,13 @@
 import React,{useRef} from 'react';
-import {StyleSheet,View,ScrollView,TouchableOpacity,Text} from 'react-native';
+import {StyleSheet,View,Dimensions,Text} from 'react-native';
+import {Tooltip} from 'react-native-elements';
 import Toast from 'react-native-easy-toast';
 import AppStyles from '../../../utils/css/theme.style';
 import FormCoupns from '../../../components/forms/FormCoupns';
 import AppText from '../../../utils/text/text.all';
+
+let dimensions = Dimensions.get("window");
+let widthtool = dimensions.width*0.8;
 
 export default function ForgetAccount(props){
 
@@ -13,12 +17,17 @@ export default function ForgetAccount(props){
 
     return(<View style={styles.containerStyle}>
             <View>
-            <TouchableOpacity style={styles.titlestyle}>
-               <View style={styles.btnContainer}>
-                 <Text style={styles.btnStyle}>{AppText.TITLE_CUPONS}</Text>
-               </View> 
-             </TouchableOpacity>
-            </View>
+            <Tooltip 
+            backgroundColor={AppStyles.PRIMARY_COLOR}
+            width={widthtool}
+            
+            popover={<Text>Ingresa el codigo y presiona redimir</Text>}>
+              
+              <View style={styles.btnContainer}>
+                <Text style={styles.btnStyle}>{AppText.TITLE_CUPONS}</Text>
+              </View> 
+           </Tooltip>
+           </View>
             <View  style={styles.viewForm}>
                    <FormCoupns
                    navigation={navigation}

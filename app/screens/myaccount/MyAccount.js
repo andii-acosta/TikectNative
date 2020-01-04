@@ -62,7 +62,6 @@ let marginHeight = dimensions.height*0.05;
             setReloadData={setReloadData}
             toastRef={toastRef}/>
             <ListGeneralOptions
-            userInfo={userInfo}
             userdata={userdata}
             setReloadData={setReloadData}
             toastRef={toastRef}

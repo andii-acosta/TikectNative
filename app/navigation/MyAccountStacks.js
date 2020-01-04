@@ -5,7 +5,7 @@ import RegisterScremm from '../screens/myaccount/Register';
 import RecuperarScremm from '../screens/myaccount/ForgetAccount';
 import InitScrenn from '../screens/myaccount/Init';
 import WelcomeScreem from '../screens/myaccount/Welcome';
-import SearchScreen from '../screens/myaccount/listoptionsscreens/Search';
+import QuestionyresponseScreen from '../screens/myaccount/listoptionsscreens/Questionyresponse';
 import MyEventsScreen from '../screens/myaccount/listoptionsscreens/MyEvents';
 import CouponsScreen from '../screens/myaccount/listoptionsscreens/Coupons';
 import PayScreen from '../screens/myaccount/listoptionsscreens/Pay';
@@ -53,8 +53,8 @@ const MyAccountScreemStacks = createStackNavigator(
                 header:null
                        })
             },
-        Search:  {
-            screen: SearchScreen,
+        Questionyresponse:  {
+            screen: QuestionyresponseScreen,
             navigationOptions: () => ({
                 title:AppText.LIST_ITEM_1,
                 headerStyle: {

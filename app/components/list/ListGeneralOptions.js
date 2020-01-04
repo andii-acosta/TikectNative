@@ -1,13 +1,12 @@
 import React,{useState} from 'react';
-import {StyleSheet,View,Text,ScrollView} from 'react-native';
+import {StyleSheet,View} from 'react-native';
 import {ListItem} from 'react-native-elements';
-import ModalEditAccount from '../modals/ModalEditAccount';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 
 export default function ListGeneralOptions (props){
 
-    const {userInfo,setReloadData,toastRef,navigation,userdata,userIds}=props;
+    const {setReloadData,toastRef,navigation,userdata,userIds}=props;
 
 const menuOptions =[
     {

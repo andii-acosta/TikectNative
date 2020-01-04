@@ -1,6 +1,6 @@
 import React,{useState,useEffect, Fragment,useRef} from 'react';
 import {Text, View,StyleSheet,Dimensions,ScrollView,Alert} from 'react-native';
-import { ListItem,Divider } from 'react-native-elements'
+import { ListItem,Divider } from 'react-native-elements';
 import AppStyles from '../../utils/css/theme.style';
 import PautaHome from '../../components/bannercarousel/PautaHome';
 import LoadingGeneral from '../../components/loading/LoadingGeneral';
