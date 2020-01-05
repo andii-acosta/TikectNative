@@ -143,7 +143,7 @@ function FormRegister(props){
             onChange={e => setCelular(e.nativeEvent.text)}
             rightIcon={
                 <Icon 
-                name={"mobile"}
+                name={AppText.NAME_ICON_CELL}
                 size={AppStyles.INPUT_SIZE_ICON}
                 color={AppStyles.ICON_RIGTH_COLOR}
                 iconStyle={styles.iconRight}

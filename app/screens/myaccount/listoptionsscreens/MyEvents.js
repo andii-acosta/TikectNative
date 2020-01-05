@@ -1,5 +1,5 @@
 import React,{useState,useEffect, Fragment,useRef} from 'react';
-import {Text, View,StyleSheet,Dimensions,ScrollView,Alert} from 'react-native';
+import {Text, View,StyleSheet,ScrollView,Alert} from 'react-native';
 import { ListItem,Divider } from 'react-native-elements'
 import AppStyles from '../../../utils/css/theme.style';
 import LoadingGeneral from '../../../components/loading/LoadingGeneral';
@@ -11,8 +11,6 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 const db = firebase.firestore(firebaseApp);
 
-let dimensions = Dimensions.get("window");
-let padding = dimensions.height*0.04;
 
 export default function MyEvents(props){
 
@@ -169,7 +167,6 @@ const styles = StyleSheet.create({
         paddingTop:AppText.PADDING_HEADER
       },
       contentStyle:{
-        paddingTop:padding,
         backgroundColor:AppStyles.PURPLE_COLOR
       },
       titleStyle:{

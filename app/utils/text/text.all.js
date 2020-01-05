@@ -13,12 +13,14 @@ export default {
   NAME_PAGE_ORDER2:"Home",
   NAME_PAGE_ORDER3:"Payment",
   NAME_ICON_LIKE: "heart",
+  NAME_ICON_CELL:"mobile",
+  NAME_ICON_WEB:"users",
   NAME_ICON_PAGE_HOME:"leaf",
   NAME_ICON_MODAL_LOCATION:"home",
   NAME_ICON_AGE: "user-plus",
   NAME_ICON_CALENDAR:"calendar",
   NAME_ICON_COMENT: "angellist",
-  NAME_ICON_PAGE_MYACCOUNT:"user",
+  NAME_ICON_PAGE_MYACCOUNT:"users",
   NAME_ICON_PAGE_PAYMENT:"shopping-basket",
   WHATSAPP: "Whatsapp",
   WHATSAPP_ICON:"whatsapp",
@@ -26,6 +28,9 @@ export default {
   CREATE_EVENT_ICON:"plus",
   CALL_ME:"Llamar",
   CALL_ME_ICON:"mobile",
+
+  NAME_ICON_NAME_CONTACT: "user",
+  NAME_ICON_MESSEGE_CONTACT: "angellist",
 
     //----------TEXTOS PARA INPUTS ------------
       INPUT_USUARIO:"Ingrese usuario",
@@ -47,6 +52,11 @@ export default {
       INPUT_COMENT:"Ingresa tu experiencia",
       INPUT_COMENT_LABEL:"Experiencia",
 
+      INPUT_NAME_CONTACT:"Ingrese tu nombre",
+      INPUT_NAME_CONTACT_LABEL:"Nombre",
+      INPUT_MENSAJE_CONTACT:"Ingrese el mensaje",
+      INPUT_MENSAJE_CONTACT_LABEL:"Mensaje",
+
 
       INPUT_DIRECCION:"Ingresa tu direccion",
       INPUT_DIRECCION_LABEL:"Direccion, (La usaremos cuando nos pidas enviar las boletas)",
@@ -54,6 +64,8 @@ export default {
       INPUT_DOCUMENTO_LABEL:"Documento, (La usaremos cuando hagas una compra)",
       INPUT_BIO:"Cuentanos algo de ti",
       INPUT_BIO_LABEL:"Biografia",
+      INPUT_WEB:"Ingresa tu link insta o fb",
+      INPUT_WEB_LABEL:"Link web",
       INPUT_DOCUMENTO_ICON:"id-card",
       INPUT_DIRECCION_ICON:"leaf",
       INPUT_BIO_ICON:"font",
@@ -68,11 +80,12 @@ export default {
       BOTON_CREAR_CUENTA:"Crear cuenta",
       BOTON_EXIST:"Cerrar Session",
       BOTON_COUPONS:"REDIMIR",
+      BOTON_CONTACT:"ENVIAR MENSAJE",
       BOTON_ACTUALIZA:"ACTUALIZA",
       BOTON_TYPE:"outline",
     
       //-------------Loading text ----------------
-      TEXT_SHOW_PROCESS: "TikectNative",
+      TEXT_SHOW_PROCESS: "TikectMoose",
       TEXT_TYC: "para crear tu cuenta debes aceptar los terminos y condiciones",
       TEXT_BTN_PQRS:"VER MAS INFORMACION",
       //-------------Loading text ----------------

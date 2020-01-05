@@ -59,7 +59,8 @@ function FormEditAccount(props){
                         "location": direccion ? direccion : location,
                         "cell": celular ? celular : cell,
                         "bio": bioNew ? bioNew : bio,
-                        "document": documento ? documento : 0
+                        "document": documento ? documento : 0,
+                        "dateUpdate": new Date(),
                       };
                       refEvent.update(newUserData).then(() =>{
                         toastRef.current.show("Actualizado OK");

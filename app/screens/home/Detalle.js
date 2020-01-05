@@ -227,10 +227,13 @@ function DataArtistas(props){
   return(
     <View style={styles.artStyle}>
        <Text style={styles.titleartistas}>{AppText.TITLE_ARTIST}</Text>
-          {data.map(art => (
-             <TouchableOpacity style={styles.btnArt} onPress={() => Linking.openURL(art.urlWeb)}>
-                <View style={styles.btnContainer4}>
-                   <Text style={styles.btnStyle4}>{art.name}</Text>
+          {data.map((art,i) => (
+             <TouchableOpacity 
+             key={i}
+             style={styles.btnArt} 
+             onPress={() => Linking.openURL(art.urlWeb)}>
+                <View key={1} style={styles.btnContainer4}>
+                   <Text key={1} style={styles.btnStyle4}>{art.name}</Text>
                 </View> 
              </TouchableOpacity>
           ))

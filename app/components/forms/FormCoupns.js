@@ -94,11 +94,12 @@ const redimircupon = async () =>{
                 db.collection("App/Info/Coupons").add({
                     code:cuponnew,
                     state:AppText.ACTIVE,
-                    userId:userKey
+                    userId:userKey,
+                    createAt: new Date(),
                 }).then(() =>{
                     setReloadCoupons(true);
                     setVisibleLoading(false);
-                    toastRef.current.show("Cupon redimido con exito",2000);
+                    navigation.goBack();
                 }
                 ).catch((error) =>{
                     setReloadCoupons(true);

@@ -80,8 +80,6 @@ let marginHeight = dimensions.height*0.05;
             ref={toastRef}
             position ="center"
             opacity = {0.7}
-            setIsLoading={setIsLoading}
-            setTextLoading={setTextLoading}
             />
             <Loading
             isvisible={isLoading}
