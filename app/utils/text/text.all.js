@@ -83,6 +83,8 @@ export default {
       BOTON_CONTACT:"ENVIAR MENSAJE",
       BOTON_ACTUALIZA:"ACTUALIZA",
       BOTON_TYPE:"outline",
+      BOTON_MULTIMEDIA:"VIDEO EJEMPLO",
+      BOTON_LINK:"PASO A PASO",
     
       //-------------Loading text ----------------
       TEXT_SHOW_PROCESS: "TikectMoose",

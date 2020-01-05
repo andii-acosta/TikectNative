@@ -56,9 +56,11 @@ let marginHeight = dimensions.height*0.05;
         <ScrollView >
           <View style={styles.viewUserinfo}>
           <InfoUser 
+           navigation={navigation}
            setIsLoading={setIsLoading}
             userInfo ={userInfo}
             userdata={userdata}
+            userIds={userIds}
             setReloadData={setReloadData}
             toastRef={toastRef}/>
             <ListGeneralOptions

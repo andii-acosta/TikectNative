@@ -3,26 +3,23 @@ import {StyleSheet,View,Text} from 'react-native';
 import {Avatar} from 'react-native-elements';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
-import * as firebase from 'firebase';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 
+import {firebaseApp} from "../../utils/Firebase";
+import firebase from 'firebase/app';
+import "firebase/firestore";
+
+const db = firebase.firestore(firebaseApp);
 
 
 export default function InfoUser(props){
 
-    const {
-        userInfo: {uid,displayName,email,photoURL},
-        setReloadData,
-        toastRef,
-        setIsLoading,
-        userdata: {name},
-    } = props; 
+    const {navigation,userInfo,setReloadData,toastRef,setIsLoading,userdata,userIds} = props; 
 
+    const {uid,displayName,email,photoURL} = userInfo;
+    const {name} =userdata;
 
-
-    const gradientHeight = 100;
-    const data = Array.from({length:gradientHeight});
 
 const changeAvatar=async () =>{
         
