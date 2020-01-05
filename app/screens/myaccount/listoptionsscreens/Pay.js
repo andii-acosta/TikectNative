@@ -74,7 +74,6 @@ export default function Pay(props){
 
 function CardPys(props){
     const {navigation,item,setRenderComponent,setIsVisible} = props;
-    console.log(item);
 
     const selectedComponent= (l) => {
         setRenderComponent(l);

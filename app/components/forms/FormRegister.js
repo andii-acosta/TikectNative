@@ -305,6 +305,11 @@ const styles = StyleSheet.create({
     btnRegister:{
     color:AppStyles.ACCENT_COLOR,
     fontWeight:"bold"
-    } 
+    },
+    Register:{
+        marginTop:AppStyles.MARGIN_10,
+        alignItems:'center',
+        color:AppStyles.WHITE_COLOR
+    },
 
 })

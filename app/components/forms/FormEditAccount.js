@@ -151,6 +151,8 @@ function FormEditAccount(props){
             placeholder={bio ? bio : AppText.INPUT_BIO}
             containerStyle={styles.inputForm}
             label={AppText.INPUT_BIO_LABEL}
+            multiline = {true}
+            numberOfLines = {4}
             labelStyle={styles.labelStyles}
             onChange={e => setBioNew(e.nativeEvent.text)}
             rightIcon={

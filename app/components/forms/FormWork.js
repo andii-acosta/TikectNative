@@ -122,6 +122,8 @@ const SendMessege = async () =>{
             containerStyle={styles.inputForm}
             label={AppText.INPUT_MENSAJE_CONTACT_LABEL}
             labelStyle={styles.labelStyles}
+            multiline = {true}
+            numberOfLines = {4}
             onChange={e => setMensaje(e.nativeEvent.text)}
             rightIcon={
                 <Icon 

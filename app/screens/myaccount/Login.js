@@ -84,7 +84,8 @@ containerDivider: {
 },
 Register:{
     marginTop:AppStyles.MARGIN_10,
-    alignItems:'center'
+    alignItems:'center',
+    color:AppStyles.WHITE_COLOR
 },
 btnRegister:{
     color:AppStyles.ACCENT_COLOR,
@@ -93,6 +94,7 @@ btnRegister:{
 containerStyle:{
     flex:1,
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    backgroundColor:AppStyles.PRIMARY_COLOR
 }
 })

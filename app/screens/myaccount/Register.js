@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     viewForm:{
         flex:1,
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        backgroundColor:AppStyles.PRIMARY_COLOR
         }
 });
