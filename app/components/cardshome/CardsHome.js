@@ -3,7 +3,6 @@ import {Text, View,StyleSheet,ScrollView,Dimensions } from 'react-native';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 import ListItems from '../../components/list/ListItems';
-import LoadingGeneral from '../loading/LoadingGeneral';
 import {firebaseApp} from '../../utils/Firebase';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -17,11 +16,10 @@ let pautaHeight = dimensions.height*0.2;
 
 export default function CardsHome(props){
 
-  const {navigation,type,typeList,maxResult,minresult} = props;
+  const {navigation,type,typeList,maxResult,minresult,toastRef,userIds,setIsloading} = props;
 
   const [items,setItems] = useState({});
   const [startItems,setStartItems] = useState(null);
-  const [isLoading,setIsloading] = useState(false);
   const [totalItems,setTotalItems] = useState(false);
   const [isreload,setIsreload] = useState(false);
   const limiteItems = maxResult;
@@ -100,12 +98,10 @@ const handlerLoadMore = async () => {
             setIsloading={setIsloading}
             handlerLoadMore={handlerLoadMore}
             navigation={navigation}
+            toastRef={toastRef}
+            userIds={userIds}
             />
         </View>
-        <LoadingGeneral
-            isvisible={isLoading}
-            textshow={AppText.TEXT_SHOW_PROCESS}
-            />
       </ScrollView>
   );
 }

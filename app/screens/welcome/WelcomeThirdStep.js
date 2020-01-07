@@ -1,12 +1,8 @@
 import React from 'react';
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity} from 'react-native';
-import {Button} from 'react-native-elements';
 import {withNavigation} from 'react-navigation';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
-
-
-let botonWidth = 300;
 
 function WelcomeThirdStep(props){
 
@@ -60,7 +56,7 @@ function WelcomeThirdStep(props){
     btnContainer: {
       marginTop:AppStyles.MARGIN_20,
       backgroundColor: "transparent",
-      borderColor: AppStyles.PRIMARY_COLOR,
+      borderColor: AppStyles.ACCENT_COLOR,
       borderWidth:AppStyles.BORDER_DEFAULT,
       borderRadius: AppStyles.BORDER_RADIUS
     },
@@ -69,7 +65,7 @@ function WelcomeThirdStep(props){
       paddingHorizontal: AppStyles.MARGIN_10,
       textAlign: "center",
       backgroundColor: "transparent",
-      color: AppStyles.PRIMARY_COLOR,
+      color: AppStyles.ACCENT_COLOR,
       fontSize: AppText.TITULO
     }
   });

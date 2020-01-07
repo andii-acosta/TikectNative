@@ -18,7 +18,6 @@ import "firebase/firestore";
 const db = firebase.firestore(firebaseApp);
 
 let dimensions = Dimensions.get("window");
-let imageHeight = Math.round(dimensions.height * AppText.SIZE_HOME_INIT);
 let formHeight = dimensions.height * 0.1;
 let inputWidth = dimensions.width * 0.8;
 
@@ -51,7 +50,6 @@ function FormRegister(props){
                     toastRef.current.show("Las contraseñas no coinciden");
                 }else{
                     setisvisibleLoading(true);
-                    console.log("datos: "+ "nombre: " + name+ "celular: " + celular+ "tipopersona: " + selectedIndex+ "email: " + email+ "pasw: " + password + " terminos"+terminos);
                     await firebase.auth()
                     .createUserWithEmailAndPassword(email,password)
                     .then(() => {

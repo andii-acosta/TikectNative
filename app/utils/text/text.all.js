@@ -9,6 +9,7 @@ export default {
   TITLE_PAGE_PAYMENT:"Entradas",
   TEXT_PAGE_PAYMENT:"Aqui puedes ver tus entradas",
   NAME_PAGE_DEFAULT:"MyAccount",
+  NAME_PAGE_DEFAULT2:"Home",
   NAME_PAGE_ORDER1:"MyAccount",
   NAME_PAGE_ORDER2:"Home",
   NAME_PAGE_ORDER3:"Payment",

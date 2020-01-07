@@ -4,7 +4,12 @@ import {Image,Rating} from 'react-native-elements';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import * as firebase from 'firebase';
+
+import {firebaseApp} from "../../utils/Firebase";
+import firebase from 'firebase/app';
+import "firebase/firestore";
+
+const db = firebase.firestore(firebaseApp);
 
 let dimensions = Dimensions.get("window");
 let imageWidth = dimensions.width*0.95;
@@ -12,7 +17,8 @@ let imgHeight = dimensions.height*0.2;
 
 export default function ListItems(props){
 
- const {items,setIsloading,handlerLoadMore,navigation} = props;
+ const {items,setIsloading,handlerLoadMore,navigation,toastRef,userIds,userdata} = props;
+
 
  //console.log(JSON.stringify(items));
     return(
@@ -21,7 +27,7 @@ export default function ListItems(props){
                  <FlatList
                  style={{borderRadius:AppStyles.BORDER_RADIUS_10}}
                  data={items}
-                 renderItem={eventos =>  <Mycard eventos={eventos} setIsloading={setIsloading} navigation={navigation}/> }
+                 renderItem={eventos =>  <Mycard userdata={userdata} userIds={userIds} eventos={eventos} setIsloading={setIsloading} navigation={navigation} toastRef={toastRef}/> }
                  keyExtractor={(item, index) => {return index.toString()}}
                  onEndReached={handlerLoadMore}
                  onEndReachedThreshold={0}
@@ -43,11 +49,22 @@ export default function ListItems(props){
 
 function Mycard (props){
 
-    const {eventos,navigation,setIsloading} = props;
+    const {eventos,navigation,setIsloading,toastRef,userIds} = props;
      
-    const {name,location,image,city,rating,price,typeTicket,publico,date} = eventos.item.restautant;
+    const {name,location,image,city,rating,price,typeTicket,publico,date,id} = eventos.item.restautant;
 
     const [imageRestaurant,setImageRestaurant] = useState(null);
+    const [isFavorite,setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        db.collection("App/Info/Favorites").where("eventId","==",id).where("userId","==",userIds)
+        .get()
+        .then((response)=>{
+            if(response.docs.length == 1){
+                setIsFavorite(true);
+            }
+        })
+    }, [])
 
     useEffect(() => {
         
@@ -59,14 +76,65 @@ function Mycard (props){
         setIsloading(false);
     }, [])
 
-    //console.log(eventos);
+    const addFavorite = () => {
+
+        const favload ={
+            userId : userIds,
+            eventId :id,
+            createAt: new Date()
+        }
+        if(userIds != null){
+            db.collection("App/Info/Favorites").add(favload)
+            .then(() => {
+                setIsFavorite(true);
+                toastRef.current.show(name+ " Agregado a favoritos",2000);
+            })
+            .catch((error)=>{
+                console.log("error:"+ error);
+                setIsFavorite(false);
+                toastRef.current.show("No se pudo agregar a favoritos",2000);
+            }  
+            );
+        }else{
+            toastRef.current.show("En este moemnto no es posible, intenta mas tarde",2000);
+        }
+        
+    }
+    
+    const removeFavorite = () => {
+
+        db.collection("App/Info/Favorites").where("eventId","==",id).where("userId","==",userIds)
+        .get().then((response) => {
+            response.forEach(doc => {
+                const idevent = doc.id;
+                db.collection("App/Info/Favorites").doc(idevent).delete().then(()=>{
+                   setIsFavorite(false);
+                   toastRef.current.show(name+ " removido de favoritos",2000);
+                }).catch((error)=>{
+                    console.log(error);
+                    toastRef.current.show("En este moemnto no es posible, intenta mas tarde",2000);
+                });
+            });
+        })
+        
+    }
 
     return(
         <TouchableOpacity style={styles.touchablestyles}
         onPress={() => navigation.navigate("Detalle",{eventos})}
-       // onPress={console.log("go detalle")}
         >
             <View style={styles.viewCard}>
+                <View style={styles.favorites}>
+                     <TouchableOpacity onPress={isFavorite ? removeFavorite : addFavorite}>
+                     <Icon 
+                            name={AppText.NAME_ICON_LIKE}
+                            size={AppStyles.INPUT_SIZE_ICON_L}
+                            iconStyle={styles.iconLike}
+                            color={isFavorite ? AppStyles.ACCENT_COLOR : AppStyles.SECUNDARY_TEXT_COLOR_LT}
+                             /> 
+                         </TouchableOpacity>
+                
+                </View>
                  
                  <View style={styles.viewCardImage}>
                      <Image
@@ -159,16 +227,6 @@ function Mycard (props){
                           <Text style={styles.btnStyle2}>{AppText.BOTON_COMPRAR}</Text>
                          </View> 
                          </TouchableOpacity>
-                     </View>
-                     <View >
-                     <TouchableOpacity style={styles.iconLike} onPress={() => navigation.navigate("Detalle",{eventos})}>
-                     <Icon 
-                            name={AppText.NAME_ICON_LIKE}
-                            size={AppStyles.INPUT_SIZE_ICON_L}
-                            iconStyle={styles.iconLike}
-                            color={AppStyles.ACCENT_COLOR}
-                             /> 
-                    </TouchableOpacity>
                      </View>
                  </View>
                  </View>
@@ -309,5 +367,19 @@ const styles = StyleSheet.create({
       },
       iconLike:{
         marginTop:AppStyles.MARGIN_15,
+        borderColor:AppStyles.WHITE_COLOR,
+        borderWidth:5,
      },
+     favorites:{
+         position:'absolute',
+         zIndex:2,
+         top:0,
+         right:0,
+         backgroundColor:AppStyles.PRIMARY_COLOR,
+         borderBottomLeftRadius:30,
+         paddingTop:5,
+         paddingBottom:5,
+         paddingLeft:15,
+         paddingRight:5
+     }
 })

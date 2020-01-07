@@ -1,10 +1,11 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import Navigation from './app/navigation/Navigation';
-import {firebaseApp} from './app/utils/Firebase'
+import NavigationOff from './app/navigation/NavigationOff';
+import * as firebase from 'firebase';
 
 export default function App() {
-  return (
-    <Navigation/>
-  );
+
+return( <Navigation/> );
+
 }
 

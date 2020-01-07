@@ -12,20 +12,6 @@ import  MiAccountScreenStacks from './MyAccountStacks';
 const NavigationStacks = createBottomTabNavigator(
 
    {
-    Home: {
-        screen: HomeScreenStack,
-        navigationOptions: () => ({
-            tabBarLabel: AppText.TITLE_PAGE_HOME,
-            tabBarIcon: ({tintColor}) =>(
-              <Icon
-              name={AppText.NAME_ICON_PAGE_HOME}
-              size={22}
-              color={tintColor}/>
-            ),
-            tabBarVisible:true
-
-        })
-    },
      MyAccount:{
        screen: MiAccountScreenStacks,
        navigationOptions: () => ({
@@ -36,27 +22,27 @@ const NavigationStacks = createBottomTabNavigator(
              size={22}
              color={tintColor}/>
            ),
-           tabBarVisible:true
+           tabBarVisible:false
        })
       },
-      Payment:{
-        screen: PaymentScreenStacks,
+      Home:{
+        screen: MiAccountScreenStacks,
         navigationOptions: () => ({
-            tabBarLabel: AppText.TITLE_PAGE_PAYMENT,
+            tabBarLabel: AppText.TITLE_PAGE_MYACCOUNT,
             tabBarIcon: ({tintColor}) =>(
               <Icon
-              name={AppText.NAME_ICON_PAGE_PAYMENT}
+              name={AppText.NAME_ICON_PAGE_MYACCOUNT}
               size={22}
               color={tintColor}/>
             ),
-            tabBarVisible:true
+            tabBarVisible:false
         })
        }
    },
 
    {
-     initialRouteName: AppText.NAME_PAGE_DEFAULT2,
-     order: [AppText.NAME_PAGE_ORDER1,AppText.NAME_PAGE_ORDER2,AppText.NAME_PAGE_ORDER3],
+     initialRouteName: AppText.NAME_PAGE_DEFAULT,
+     order: [AppText.NAME_PAGE_ORDER1],
      tabBarOptions:{
        inactiveTintColor: AppStyles.WHITE_COLOR,
        activeTintColor: AppStyles.ACCENT_COLOR,

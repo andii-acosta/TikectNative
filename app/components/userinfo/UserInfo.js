@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {StyleSheet,View,Text} from 'react-native';
+import {StyleSheet,View,Text,Dimensions} from 'react-native';
 import {Avatar} from 'react-native-elements';
 import AppStyles from '../../utils/css/theme.style';
 import AppText from '../../utils/text/text.all';
@@ -12,10 +12,13 @@ import "firebase/firestore";
 
 const db = firebase.firestore(firebaseApp);
 
+let dimensions = Dimensions.get("window");
+let imageHeight = Math.round(dimensions.height * AppText.SIZE_HOME_INIT);
+let marginHeight = dimensions.height*0.04;
 
 export default function InfoUser(props){
 
-    const {navigation,userInfo,setReloadData,toastRef,setIsLoading,userdata,userIds} = props; 
+    const {navigation,userInfo,setReloadData,toastRef,setIsLoading,userdata} = props; 
 
     const {uid,displayName,email,photoURL} = userInfo;
     const {name} =userdata;
@@ -121,8 +124,8 @@ const styles = StyleSheet.create({
         justifyContent:AppStyles.CENTRADO,
         flexDirection:"row",
         backgroundColor:AppStyles.PRIMARY_COLOR,
-        paddingTop:AppStyles.MARGIN_TOP,
-        paddingBottom: AppStyles.MARGIN_TOP
+        paddingBottom: AppStyles.MARGIN_TOP,
+        paddingTop: marginHeight,
         
     },
     userInfoAvatar:{

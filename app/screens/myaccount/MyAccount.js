@@ -15,7 +15,6 @@ const db = firebase.firestore(firebaseApp);
 
 let dimensions = Dimensions.get("window");
 let imageHeight = Math.round(dimensions.height * AppText.SIZE_HOME_INIT);
-let marginHeight = dimensions.height*0.05;
 
  function MyAccount(props){
     
@@ -101,7 +100,6 @@ const styles = StyleSheet.create({
         flex:1,
         minHeight:"100%",
         backgroundColor:AppStyles.WHITE_COLOR,
-        marginTop:marginHeight,
         marginBottom:AppStyles.MARGIN_20
     },
     titleSession:{

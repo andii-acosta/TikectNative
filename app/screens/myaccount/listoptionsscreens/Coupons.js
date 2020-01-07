@@ -9,7 +9,7 @@ import AppText from '../../../utils/text/text.all';
 let dimensions = Dimensions.get("window");
 let widthtool = dimensions.width*0.8;
 
-export default function ForgetAccount(props){
+export default function Coupons(props){
 
     const {navigation}=props;
 

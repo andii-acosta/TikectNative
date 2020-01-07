@@ -11,9 +11,6 @@ import AppText from '../../utils/text/text.all';
 
 
 let dimensions = Dimensions.get("window");
-let imageHeight = Math.round(dimensions.height * AppText.SIZE_HOME_INIT);
-let imageWidth = dimensions.width;
-
 let inputWidth = dimensions.width * 0.8;
 
 
@@ -29,9 +26,7 @@ let inputWidth = dimensions.width * 0.8;
 
 const login = async () =>{
     setVisibleLoading(true);
-    console.log("email: " + email+ " contra: "+ password); 
     if(!email || !password){
-        console.log("complete los datos");
         toastRef.current.show("Datos incompletos");
     }else{
         if(validateEmail(email)){

@@ -71,7 +71,8 @@ export default {
     //---------------------------------
     //ESTILOS PARA EL BOTON OFICIAL
     ICON_RIGTH_COLOR_BUTTON:"#C1C1C1", // GRIS 
-    //---------------------------------
+    //-------ICON SIZE--------------------------
+    ICON_SIZE:25,
 
     //ESTILOS GENERALES
     CENTRADO:"center",
